@@ -1,4 +1,4 @@
-# KWS
+# WEBSITE GUNUNGGGAJAH
 
 ## First Time Setup
 1. Clone repository.
@@ -14,3 +14,5 @@
 1. Run command `php artisan storage:link`.
 1. Run command `php artisan laravolt:link-assets`.
 1. Run command `php artisan serve`  or use valet and then open the URL provided by the console in browser.
+
+## Pengembangan dilakukan di branch dev
