@@ -1,14 +1,415 @@
-@extends('ui::layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-@section('content')
-    <div style="display: flex; min-height: 600px; align-items: center; justify-content: center; flex-direction: column">
-        <h1 class="ui header" style="font-size: 5em; font-weight: 100; letter-spacing: .15em">
-            Home Sweet Home
-        </h1>
+  <!-- Site Properities -->
+  <title>Start UP - Creative Landing Page Template</title>
 
-        <div>
-            Check file <code class="ui label">{{ \App\Http\Controllers\Home::class }}</code> to edit this page.
+  <link rel="stylesheet" type="text/css" href="semantic-ui/semantic.css">
+  <link rel="stylesheet" type="text/css" href="homepage.css">
+  <link rel="stylesheet" type="text/css" href="iconfonts/flaticon.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/semantic.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/iconfonts/flaticon.css') }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfonts/flaticon.css') }}"> --}}
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script type="text/javascript" src="{{ asset('css/homepage/semantic.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('css/homepage.js') }}"></script>
+  <script>
+    $(function(){
+      $('.ui.card').popup();
+    });
+  </script>
+</head>
+<body id="home">
+<div class="ui inverted masthead centered segment">
+  <div class="ui page grid">
+    <div class="column">
+
+
+
+      <div class="ui secondary pointing menu">
+        <a class="logo item">
+          startup
+        </a>
+        <a class="active item">
+          <i class="flaticon-home"></i> Home
+        </a>
+        <a class="item">
+          <i class="flaticon-mail"></i> Messages
+        </a>
+        <a class="item">
+          <i class="flaticon-heart"></i> Friends
+        </a>
+        <div class="right menu">
+          <div class="item">
+            <div class="ui icon input">
+              <input placeholder="Search..." type="text">
+              <i class="flaticon-position link icon"></i>
+            </div>
+          </div>
+          <a class="ui item" href="{{ url('/auth/login') }}">
+            Login
+          </a>
         </div>
+      </div>
+
+      <div class="ui hidden transition information">
+        <h1 class="ui inverted centered header">
+          An Old Cat Can Learn New Tricks
+        </h1>
+        <p class="ui centered lead">At least he won't reach his highest potential unless<br/>you enroll him in Cat University's 2013 class.</p>
+        <a href="#" class="large basic inverted animated fade ui button">
+          <div class="visible content">Come to ICU 2013</div>
+          <div class="hidden content">Register Now</div>
+        </a>
+        <div class="ui centerted image">
+        <img src="{{asset('img/banner.png')}}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui vertical feature segment">
+  <div class="ui centered page grid">
+    <div class="fourteen wide column">
+      <div class="ui three column center aligned stackable divided grid">
+        <div class="column column-feature">
+          <div class="ui icon header">
+            <i class="flaticon-connecting icon"></i>
+            Courses
+          </div>
+          <p>Take your kitty to a cat-ducation course and learn how to treat her well.</p>
+          <p>
+            <a class="ui button" href="#">
+              Learn
+            </a>
+          </p>
+        </div>
+        <div class="column column-feature">
+          <div class="ui icon header">
+            <i class="flaticon-calendar icon"></i>
+            Library
+          </div>
+          <p>Dig through our cat library to found out amazing things you can do with your kitty.</p>
+          <p>
+            <a class="ui green right labeled icon button" href="#">
+              Research
+              <i class="right flaticon-move icon"></i>
+            </a>
+          </p>
+        </div>
+        <div class="column column-feature">
+          <div class="ui icon header">
+            <i class="flaticon-speech icon"></i>
+            Community
+          </div>
+          <p>Get feedback on your cat from a community of loving pet owners on our online...</p>
+          <p>
+            <a class="ui button" href="#">
+              Share
+            </a>
+          </p>
+        </div>
+      </div>
+
+
 
     </div>
-@endsection
+  </div>
+
+  <div class="ui centered page grid">
+    <h3 class="subscribe-header">Subscribe to Mailing List</h3>
+    <p class="ui centered lead large">At least he won't reach his highest potential unless you enroll him in Cat University's 2013 class.</p>
+    <div class="ui form eight wide subscribe column">
+
+      <div class="field">
+
+        <div class="ui fluid action input">
+          <input placeholder="Susbcribe..." type="text">
+          <div class="ui button">Susbcribe</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="ui recent-works vertical segment">
+  <div class="ui very relaxed stackable centered page grid">
+    <div class="row">
+      <div class="eight wide centered column">
+        <h1 class="center aligned ui inverted header">
+          Recent Works
+        </h1>
+        <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
+        <p class="ui centered lead">Checkout Our Recently Completed Works<br>you will be amazed!.</p>
+      </div>
+    </div>
+    <div class="fourteen wide column">
+      <div class="ui three column aligned stackable divided grid">
+
+
+
+        <div class="column">
+
+          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+            <div class="image">
+              <img src="{{asset('img/totoro-horizontal.jpg')}}">
+            </div>
+            <div class="content">
+              <div class="header">My Neighbor Totoro</div>
+              <div class="description">
+                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
+              </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+              <div class="ui button">
+                <i class="flaticon-plus icon"></i>
+                Queue
+              </div>
+              <div class="ui pink button">
+                <i class="flaticon-play icon"></i>
+                Watch
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="column">
+
+          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+            <div class="image">
+              <img src="{{asset('img/totoro-horizontal.jpg')}}">
+            </div>
+            <div class="content">
+              <div class="header">My Neighbor Totoro</div>
+              <div class="description">
+                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
+              </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+              <div class="ui button">
+                <i class="flaticon-plus icon"></i>
+                Queue
+              </div>
+              <div class="ui pink button">
+                <i class="flaticon-play icon"></i>
+                Watch
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="column">
+
+          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+            <div class="image">
+              <img src="{{asset('img/totoro-horizontal.jpg')}}">
+            </div>
+            <div class="content">
+              <div class="header">My Neighbor Totoro</div>
+              <div class="description">
+                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
+              </div>
+            </div>
+            <div class="ui two bottom attached buttons">
+              <div class="ui button">
+                <i class="flaticon-plus icon"></i>
+                Queue
+              </div>
+              <div class="ui pink button">
+                <i class="flaticon-play icon"></i>
+                Watch
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui vertical segment">
+  <div class="ui stackable center aligned page grid">
+    <div class="row">
+      <div class="eight wide column">
+        <h1 class="ui header">
+          Our Clients
+        </h1><div class="ui horizontal divider"><i class="flaticon-settings icon"></i></div>
+        <p class="ui centered lead">
+          Many Companies Rely on Our Cat Knowledge
+        </p>
+        <br/>
+      </div>
+    </div>
+    <div class="four column logo row">
+      <div class="column">
+        <div class="ui shape">
+          <div class="sides">
+            <div class="active side">
+              <i class="huge flaticon-facebook icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-pinterest icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-more icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui shape">
+          <div class="sides">
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-more icon"></i>
+            </div>
+            <div class="active side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-facebook icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="ui shape">
+          <div class="sides">
+            <div class="active side">
+              <i class="huge flaticon-facebook icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-pinterest icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-more icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui shape">
+          <div class="sides">
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-more icon"></i>
+            </div>
+            <div class="active side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-facebook icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-google icon"></i>
+            </div>
+            <div class="side">
+              <i class="huge flaticon-twitter icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui inverted footer vertical segment center">
+  <div class="ui stackable center aligned page grid">
+    <div class="four column row">
+
+      <div class="column">
+        <h5 class="ui inverted header">Courses</h5>
+        <div class="ui inverted link list">
+          <a class="item">Registration</a>
+          <a class="item">Course Calendar</a>
+          <a class="item">Professors</a>
+        </div>
+      </div>
+      <div class="column">
+        <h5 class="ui inverted header">Library</h5>
+        <div class="ui inverted link list">
+          <a class="item">A-Z</a>
+          <a class="item">Most Popular</a>
+          <a class="item">Recently Changed</a>
+        </div>
+      </div>
+      <div class="column">
+        <h5 class="ui inverted header">Community</h5>
+        <div class="ui inverted link list">
+          <a class="item">BBS</a>
+          <a class="item">Careers</a>
+          <a class="item">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="column">
+        <h5 class="ui inverted header">Designed By</h5>
+        <addr>
+          <a class="item" href="http://scripteden.com"><img src="{{asset('img/scripteden-logo-g.png')" alt="Logo" style="height:20px" /></a>  <br/>
+          <a href="http://scripteden.com/downloads/bootstrap/">Bootstrap Templates</a>           <br/>
+          <a href="http://scripteden.com/downloads/semantic-ui/">Semantic UI Templates</a>
+        </addr>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+</body>
+
+</html>
