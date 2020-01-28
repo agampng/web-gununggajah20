@@ -166,6 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Modules\Articles\Providers\ServiceProvider::class,
+        Modules\Wisata\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -175,6 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\MenuServiceProvider::class,
 
     ],
 
