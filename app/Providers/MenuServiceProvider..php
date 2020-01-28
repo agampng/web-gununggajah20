@@ -32,6 +32,9 @@ class MenuServiceProvider extends ServiceProvider
     {
         $menu = $this->app['laravolt.menu']->add('Data');
         $menu->add('Artikel', 'article')
+             ->data('icon', 'file alternate outline');
+
+        $menu->add('Paket Wisata', 'wisatum')
             ->data('icon', 'archive');
     }
 }

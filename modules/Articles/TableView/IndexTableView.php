@@ -16,9 +16,8 @@ class IndexTableView extends TableView
             Text::make('title')->sortable(),
             Text::make('content')->sortable(),
             Text::make('status')->sortable(),
-            Text::make('slug')->sortable(),
-            Text::make('created_by')->sortable(),
-            Text::make('updated_by')->sortable(),
+            Text::make('penulis')->sortable(),
+            Text::make('editor')->sortable(),
             RestfulButton::make('article'),
         ];
     }

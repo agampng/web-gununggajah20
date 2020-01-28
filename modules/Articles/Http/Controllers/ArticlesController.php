@@ -12,7 +12,11 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $items = Article::autoSort()->latest()->search(request('search'))->paginate();
+        $items = Article::autoSort()->latest()
+            ->leftJoin('users as cb', 'cb.id', 'articles.created_by')
+            ->leftJoin('users as ub', 'ub.id', 'articles.updated_by')
+            ->select('cb.name as penulis', 'ub.name as editor', 'articles.*')
+            ->search(request('search'))->paginate();
 
         return (IndexTableView::make($items))->view('article::index');
     }
@@ -24,7 +28,15 @@ class ArticlesController extends Controller
 
     public function store(Store $request)
     {
-        Article::create($request->all());
+//        Article::create($request->all());
+
+        Article::create([
+            'title' => $request->title,
+            'status' => $request->status,
+            'content' => $request->content,
+            'slug' => $request->title,
+            'created_by' => auth()->user()->id,
+        ]);
 
         return redirect()->route('article.index')->withSuccess('Articles saved');
     }
@@ -34,7 +46,7 @@ class ArticlesController extends Controller
         return view('article::show', compact('article'));
     }
 
-    public function edit(Articles $article)
+    public function edit(Article $article)
     {
         return view('article::edit', compact('article'));
     }

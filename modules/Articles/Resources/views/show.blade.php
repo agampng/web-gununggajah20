@@ -16,15 +16,15 @@
     </div>
 
     <table class="ui table definition">
-        <tr><td>Id</td><td>{{ $->id }}</td></tr>
-        <tr><td>Title</td><td>{{ $->title }}</td></tr>
-        <tr><td>Content</td><td>{{ $->content }}</td></tr>
-        <tr><td>Status</td><td>{{ $->status }}</td></tr>
-        <tr><td>Slug</td><td>{{ $->slug }}</td></tr>
-        <tr><td>Created by</td><td>{{ $->created_by }}</td></tr>
-        <tr><td>Updated by</td><td>{{ $->updated_by }}</td></tr>
-        <tr><td>Created at</td><td>{{ $->created_at }}</td></tr>
-        <tr><td>Updated at</td><td>{{ $->updated_at }}</td></tr>
+        <tr><td>Id</td><td>{{ $article->id }}</td></tr>
+        <tr><td>Title</td><td>{{ $article->title }}</td></tr>
+        <tr><td>Content</td><td>{{ $article->content }}</td></tr>
+        <tr><td>Status</td><td>{{ $article->status }}</td></tr>
+        <tr><td>Slug</td><td>{{ $article->slug }}</td></tr>
+        <tr><td>Created by</td><td>{{ $article->created_by }}</td></tr>
+        <tr><td>Updated by</td><td>{{ $article->updated_by }}</td></tr>
+        <tr><td>Created at</td><td>{{ $article->created_at }}</td></tr>
+        <tr><td>Updated at</td><td>{{ $article->updated_at }}</td></tr>
     </table>
 
 @stop

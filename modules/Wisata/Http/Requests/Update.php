@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Articles\Http\Requests;
+namespace Modules\\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Store extends FormRequest
+class Update extends Store
 {
     /**
      * Get the validation rules that apply to the request.
@@ -17,6 +17,14 @@ class Store extends FormRequest
             'title' => ['required'],
             'content' => ['required'],
             'status' => ['required'],
+            'slug' => ['required'],
+            'file' => ['required'],
+            'nama_penyedia' => ['required'],
+            'telepon_penyedia' => ['required'],
+            'email_penyedia' => ['required'],
+            'kategori_wisata' => ['required'],
+            'created_by' => [''],
+            'updated_by' => [''],
         ];
     }
 

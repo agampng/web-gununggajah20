@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Modules\Articles\Providers\ServiceProvider::class,
+        Modules\Wisata\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...

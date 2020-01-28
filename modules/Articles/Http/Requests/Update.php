@@ -17,9 +17,6 @@ class Update extends Store
             'title' => ['required'],
             'content' => ['required'],
             'status' => ['required'],
-            'slug' => ['required'],
-            'created_by' => [''],
-            'updated_by' => [''],
         ];
     }
 
