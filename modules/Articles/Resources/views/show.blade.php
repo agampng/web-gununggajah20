@@ -20,6 +20,7 @@
         <tr><td>Title</td><td>{{ $article->title }}</td></tr>
         <tr><td>Content</td><td>{{ $article->content }}</td></tr>
         <tr><td>Status</td><td>{{ $article->status }}</td></tr>
+        <tr><td>Gambar</td><td><img width="150px" src="{{ url('/uploadedImage/'.$article->gambar) }}"></td></tr>
         <tr><td>Slug</td><td>{{ $article->slug }}</td></tr>
         <tr><td>Created by</td><td>{{ $article->created_by }}</td></tr>
         <tr><td>Updated by</td><td>{{ $article->updated_by }}</td></tr>
