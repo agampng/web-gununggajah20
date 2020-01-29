@@ -31,10 +31,12 @@ class MenuServiceProvider extends ServiceProvider
     public function contentAdmin()
     {
         $menu = $this->app['laravolt.menu']->add('Data');
-        $menu->add('Artikel', 'article')
-             ->data('icon', 'file alternate outline');
+        $menu->add('Artikel', 'admin/article')
+             ->data('icon', 'file alternate outline')
+            ->active('admin/article/*');
 
-        $menu->add('Paket Wisata', 'wisatum')
-            ->data('icon', 'archive');
+        $menu->add('Paket Wisata', 'admin/wisatum')
+            ->data('icon', 'archive')
+            ->active('admin/wisatum/*');
     }
 }

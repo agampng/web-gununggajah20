@@ -1,0 +1,19 @@
+body {
+    overflow-x: initial;
+    word-break: break-word;
+}
+#redactor-image-dimension {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    line-height: 20px;
+    bottom: 10px;
+    right: 5px;
+    background-color: rgba(0,0,0, 0.9);
+    width: 100px;
+    height: 20px;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+}

@@ -1,0 +1,20 @@
+/* input */
+.fileuploader-theme-dropin .fileuploader-input {
+    margin: -16px;
+    padding: 16px;
+    border: 0;
+}
+.fileuploader-theme-dropin .fileuploader-input.fileuploader-dragging {
+    background: #f3f5fa;
+}
+.fileuploader-theme-dropin .fileuploader-input-inner {
+    width: 100%;
+    padding: 16px;
+}
+.fileuploader-theme-dropin .fileuploader-input-inner span {
+    display: inline-block;
+    text-decoration: underline;
+}
+.fileuploader-theme-dropin .fileuploader-input-inner span:hover {
+    color: #4a4a64;
+}

@@ -13,11 +13,11 @@ class IndexTableView extends TableView
     {
         return [
             Numbering::make('No'),
-            Text::make('title')->sortable(),
-            Text::make('content')->sortable(),
+            Text::make('title', 'Judul')->sortable(),
             Text::make('status')->sortable(),
             Text::make('penulis')->sortable(),
             Text::make('editor')->sortable(),
+            Text::make('created_at', 'Tanggal')->sortable(),
             RestfulButton::make('article'),
         ];
     }

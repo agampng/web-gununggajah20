@@ -18,7 +18,7 @@ class ArticlesController extends Controller
             ->select('cb.name as penulis', 'ub.name as editor', 'articles.*')
             ->search(request('search'))->paginate();
 
-        return (IndexTableView::make($items))->view('article::index');
+        return (IndexTableView::make($items)->title('Artikel'))->view('article::index');
     }
 
     public function create()
@@ -30,10 +30,16 @@ class ArticlesController extends Controller
     {
 //        Article::create($request->all());
 
+        $gambar = $request->file('gambar');
+        $namaGambar = time()."_".$gambar->getClientOriginalName();
+        $dirGambar = 'uploadedImage';
+        $gambar->move($dirGambar,$namaGambar);
+
         Article::create([
             'title' => $request->title,
             'status' => $request->status,
             'content' => $request->content,
+            'gambar' => $namaGambar,
             'slug' => $request->title,
             'created_by' => auth()->user()->id,
         ]);
@@ -43,6 +49,7 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
+
         return view('article::show', compact('article'));
     }
 
@@ -51,17 +58,17 @@ class ArticlesController extends Controller
         return view('article::edit', compact('article'));
     }
 
-    public function update(Update $request,Articles $article)
+    public function update(Update $request,Article $article)
     {
         $article->update($request->all());
 
         return redirect()->back()->withSuccess(' saved');
     }
 
-    public function destroy(Articles $article)
+    public function destroy(Article $article)
     {
         $article->delete();
 
-        return redirect()->route('article.index')->withSuccess(' deleted');
+        return redirect()->route('article.index')->withSuccess('Article deleted');
     }
 }

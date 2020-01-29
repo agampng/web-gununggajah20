@@ -2,9 +2,9 @@
 
 Route::group(
     [
-        'prefix'     => '',
+        'prefix'     => 'admin',
         'as'         => '',
-        'middleware' => [],
+        'middleware' => ['auth'],
     ],
     function (\Illuminate\Routing\Router $router) {
         $router->get('article', 'ArticlesController@index')->name('article.index');

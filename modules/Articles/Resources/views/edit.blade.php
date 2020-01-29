@@ -19,9 +19,6 @@
 	{!! form()->textarea('title')->label('Title') !!}
 	{!! form()->textarea('content')->label('Content') !!}
 	{!! form()->text('status')->label('Status') !!}
-	{!! form()->text('slug')->label('Slug') !!}
-	{!! form()->text('created_by')->label('Created by') !!}
-	{!! form()->text('updated_by')->label('Updated by') !!}
     {!! form()->action([
         form()->submit('Save'),
         form()->link('Cancel', route('article.index'))
