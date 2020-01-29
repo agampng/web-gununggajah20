@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\\Http\Requests;
+namespace Modules\Wisata\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -17,14 +17,10 @@ class Store extends FormRequest
             'title' => ['required'],
             'content' => ['required'],
             'status' => ['required'],
-            'slug' => ['required'],
             'file' => ['required'],
             'nama_penyedia' => ['required'],
             'telepon_penyedia' => ['required'],
-            'email_penyedia' => ['required'],
             'kategori_wisata' => ['required'],
-            'created_by' => [''],
-            'updated_by' => [''],
         ];
     }
 

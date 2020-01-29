@@ -15,15 +15,18 @@
         </div>
     </div>
 
+    <div class="ui segment attached">
     {!! form()->bind($article)->put(route('article.update', $article->getKey()))->multipart() !!}
 	{!! form()->textarea('title')->label('Title') !!}
 	{!! form()->textarea('content')->label('Content') !!}
 	{!! form()->text('status')->label('Status') !!}
+    <div class="ui divider hidden"></div>
     {!! form()->action([
         form()->submit('Save'),
         form()->link('Cancel', route('article.index'))
     ]) !!}
 
-{!! form()->close() !!}
+    {!! form()->close() !!}
+    </div>
 
 @stop

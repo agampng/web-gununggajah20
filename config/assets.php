@@ -50,19 +50,5 @@ return [
          */
         //'autoload' => array('jquery-cdn'),
     ], // End of default group
-    'laravolt' => [
-        'css_dir'     => '',
-        'js_dir'      => '',
-        'collections' => [
-            /**
-             * http://vegas.jaysalvat.com/documentation/setup/
-             * VEGAS is a jQuery plugin which adds beautiful animated background slideshows to your page body
-             * or any of its elements. It works on IE9+, Safari, Firefox and Chrome.
-             */
-            'vegas' => [
-                'laravolt/plugin/vegas/vegas.min.css',
-                'laravolt/plugin/vegas/vegas.min.js',
-            ],
-        ],
-    ],
+
 ];

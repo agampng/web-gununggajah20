@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\\Http\Requests;
+namespace Modules\Wisata\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

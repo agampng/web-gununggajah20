@@ -28,15 +28,18 @@
 {{--    ]) !!}--}}
 {{--    {!! form()->close() !!}--}}
 
-    {!! SemanticForm::open()->post()->action(route('article.store'))->multipart() !!}
-    {!! SemanticForm::text('title')->label('Judul')->required() !!}
-    {!! SemanticForm::imageEditor('gambar', 'Gambar Judul', ['required' => true]) !!}
-    <label class="required"><b>Konten</b></label>
-    {!! form()->redactor('content') !!}
-    <div class="ui divider hidden"></div>
-    {!! SemanticForm::select('status', ['Tidak Aktif' => 'Tidak Aktif', 'Aktif' => 'Aktif'])->label('Status')->required() !!}
-    {!! SemanticForm::submit('Simpan') !!}
-    {!! SemanticForm::link('Batalkan', route('article.index')) !!}
-    {!! SemanticForm::close() !!}
+    <div class="ui segment attached">
+        {!! SemanticForm::open()->post()->action(route('article.store'))->multipart() !!}
+        {!! SemanticForm::text('title')->label('Judul')->required() !!}
+        {!! SemanticForm::imageEditor('gambar', 'Gambar Judul', ['required' => true]) !!}
+        <label class="required"><b>Konten</b></label>
+        {!! form()->redactor('content') !!}
+        <div class="ui divider hidden"></div>
+        {!! SemanticForm::select('status', ['Tidak Aktif' => 'Tidak Aktif', 'Aktif' => 'Aktif'])->label('Status')->required() !!}
+        <div class="ui divider hidden"></div>
+        {!! SemanticForm::submit('Simpan') !!}
+        {!! SemanticForm::link('Batalkan', route('article.index')) !!}
+        {!! SemanticForm::close() !!}
+    </div>
 
 @stop

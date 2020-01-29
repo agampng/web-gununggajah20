@@ -15,23 +15,26 @@
         </div>
     </div>
 
-    {!! form()->bind($)->put(route('wisatum.update', $->getKey()))->multipart() !!}
-	{!! form()->textarea('title')->label('Title') !!}
-	{!! form()->textarea('content')->label('Content') !!}
-	{!! form()->text('status')->label('Status') !!}
-	{!! form()->text('slug')->label('Slug') !!}
-	{!! form()->text('file')->label('File') !!}
-	{!! form()->text('nama_penyedia')->label('Nama penyedia') !!}
-	{!! form()->text('telepon_penyedia')->label('Telepon penyedia') !!}
-	{!! form()->text('email_penyedia')->label('Email penyedia') !!}
-	{!! form()->text('kategori_wisata')->label('Kategori wisata') !!}
-	{!! form()->text('created_by')->label('Created by') !!}
-	{!! form()->text('updated_by')->label('Updated by') !!}
-    {!! form()->action([
-        form()->submit('Save'),
-        form()->link('Cancel', route('wisatum.index'))
-    ]) !!}
+    <div class="ui segment attached">
+        {!! form()->bind($)->put(route('wisatum.update', $->getKey()))->multipart() !!}
+        {!! form()->textarea('title')->label('Title') !!}
+        {!! form()->textarea('content')->label('Content') !!}
+        {!! form()->text('status')->label('Status') !!}
+        {!! form()->text('slug')->label('Slug') !!}
+        {!! form()->text('file')->label('File') !!}
+        {!! form()->text('nama_penyedia')->label('Nama penyedia') !!}
+        {!! form()->text('telepon_penyedia')->label('Telepon penyedia') !!}
+        {!! form()->text('email_penyedia')->label('Email penyedia') !!}
+        {!! form()->text('kategori_wisata')->label('Kategori wisata') !!}
+        {!! form()->text('created_by')->label('Created by') !!}
+        {!! form()->text('updated_by')->label('Updated by') !!}
+        <div class="ui divider hidden"></div>
+        {!! form()->action([
+            form()->submit('Save'),
+            form()->link('Cancel', route('wisatum.index'))
+        ]) !!}
 
-{!! form()->close() !!}
+        {!! form()->close() !!}
+    </div>
 
 @stop
