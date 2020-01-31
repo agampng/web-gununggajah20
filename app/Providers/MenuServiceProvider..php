@@ -30,6 +30,11 @@ class MenuServiceProvider extends ServiceProvider
 
     public function contentAdmin()
     {
+        $menu1 = $this->app['laravolt.menu']->add('Dashboard');
+        $menu1->add('Dashboard', 'admin')
+             ->data('icon', 'chart area icon')
+            ->active('admin');
+
         $menu = $this->app['laravolt.menu']->add('Data');
         $menu->add('Artikel', 'admin/article')
              ->data('icon', 'file alternate outline')
