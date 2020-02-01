@@ -6,8 +6,6 @@
 	1. `storage`
 	1. `bootstrap/cache`
 1. Run command `composer install`.
-1. Run command `npm install`.
-1. Run command `npm run dev` untuk dev atau `npm run prod` untuk production.
 1. Copy `.env.example` to `.env` and adjust the content.
 1. Run command `php artisan migrate:fresh --seed`.
 1. Run command `php artisan key:generate`.
