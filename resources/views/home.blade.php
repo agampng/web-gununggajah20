@@ -99,17 +99,15 @@
         @foreach($artikel as $a)
           <div class="column column-feature">
             <div class="gambar">
-              <img style="width: 15rem; height: 15rem;" src="{{ asset('uploadedImage/'.$a->gambar) }}" alt="">
+              <img style="width: 15rem; height: 15rem; object-fit: cover" src="{{ asset('uploadedImage/'.$a->gambar) }}" alt="">
             </div>
             <div class="ui icon header">
               {{$a->title}}
             </div>
-            <p>{!! substr($a->content,0,100) !!}</p>
-            <p>
+            {!! substr($a->content,0,100) !!}
             <a class="ui button green" href="#">
                 Baca
               </a>
-            </p>
           </div>
         @endforeach
       </div>
@@ -140,7 +138,7 @@
 
             <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
               <div class="image">
-                <img src="{{ asset('uploadedImage/'.$w->file) }}">
+                <img style="width: 20rem; height: 20rem; object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
               <div class="content">
               <div class="header">{!! $w->title !!}</div>
