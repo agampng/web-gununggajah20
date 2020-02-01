@@ -17,8 +17,8 @@ class IndexTableView extends TableView
             Text::make('status')->sortable(),
             Text::make('penulis')->sortable(),
             Text::make('editor')->sortable(),
-            Text::make('created_at', 'Tanggal')->sortable(),
-            RestfulButton::make('article'),
+            Text::make('created_at_present', 'Tanggal Dibuat')->sortable(),
+            RestfulButton::make('article')->only(['edit', 'delete']),
         ];
     }
 }

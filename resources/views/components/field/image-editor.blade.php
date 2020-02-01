@@ -10,10 +10,15 @@ $id = uniqid('image-editor-');
     <input type="file" accept="image/*" data-image-editor name="{{ $name }}" data-fileuploader-listInput="uploader[{{ $name }}]"/>
 </div>
 
+{{-- {{dd($value)}} --}}
 @push('script')
     <script>
         $(document).ready(function() {
 
+            var getUrl = window.location;
+            var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
+            var baseImage = baseUrl + "uploadedImage" + "/" + '{{$value}}'
+            // console.log(baseImage)
             // enable fileupload plugin
             $('#{{ $id }} input[data-image-editor]').fileuploader({
                 limit: 1,
@@ -27,10 +32,10 @@ $id = uniqid('image-editor-');
                     name: '{{ basename($value) }}',
                     size: 1000,
                     type: 'image/png',
-                    file: '{{ $value }}',
+                    file: baseImage,
                     data: {
-                        thumbnail: '{{ $value }}',
-                        url: '{{ $value }}'
+                        thumbnail: baseImage,
+                        url: baseImage
                     }
                 }],
                 @endif
