@@ -30,7 +30,6 @@ class WisataController extends Controller
     public function store(Store $request)
     {
 //        Wisata::create($request->all());
-
         $gambar = $request->file('file');
         $namaGambar = time()."_".$gambar->getClientOriginalName();
         $dirGambar = 'uploadedImage';
@@ -50,7 +49,7 @@ class WisataController extends Controller
             'kategori_wisata' => $request->kategori_wisata,
         ]);
 
-        return redirect()->route('wisatum.index')->withSuccess(' saved');
+        return redirect()->route('wisatum.index')->withSuccess('Paket wisata berhasil disimpan');
     }
 
     public function show(Wisata $wisata)
@@ -60,14 +59,35 @@ class WisataController extends Controller
 
     public function edit(Wisata $wisata)
     {
-        return view('::edit', compact(''));
+        return view('wisata::edit', compact('wisata'));
     }
 
     public function update(Update $request,Wisata $wisata)
     {
-        $wisata->update($request->all());
+        // $wisata->update($request->all());
+        if ($request->file('file')) {
+            $gambar = $request->file('file');
+            $namaGambar = time()."_".$gambar->getClientOriginalName();
+            $dirGambar = 'uploadedImage';
+            $gambar->move($dirGambar,$namaGambar);
+        } else {
+            $namaGambar = $wisata->file;
+        }
 
-        return redirect()->back()->withSuccess(' saved');
+        $wisata->title = $request->title;
+        $wisata->status = $request->status;
+        $wisata->content = $request->content;
+        $wisata->file = $namaGambar;
+        $wisata->slug = $request->title;
+        $wisata->updated_by = auth()->user()->id;
+        $wisata->nama_penyedia = $request->nama_penyedia;
+        $wisata->telepon_penyedia = $request->telepon_penyedia;
+        $wisata->email_penyedia = $request->email_penyedia;
+        $wisata->kategori_wisata = $request->kategori_wisata;
+
+        $wisata->save();
+
+        return redirect()->back()->withSuccess('Paket wisata berhasil diubah');
     }
 
     public function destroy(Wisata $wisata)

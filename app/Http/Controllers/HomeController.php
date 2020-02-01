@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $artikel = Article::latest()->limit(6)->where('status', 'Aktif')->get();
-        $wisata = Wisata::latest()->limit(6)->get();
+        $wisata = Wisata::latest()->limit(6)->where('status', 'Aktif')->get();
         VisitLog::save();
         return view('home', compact(['artikel','wisata']));
 

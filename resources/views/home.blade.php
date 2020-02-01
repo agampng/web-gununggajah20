@@ -106,7 +106,7 @@
             </div>
             <p>{!! substr($a->content,0,100) !!}</p>
             <p>
-            <a class="ui button" href="#">
+            <a class="ui button green" href="#">
                 Baca
               </a>
             </p>
@@ -292,7 +292,7 @@
           Kritik / Saran
         </h1>
         <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
-        <p class="ui centered lead">Sampaikan kritik anda</p>
+        <p class="ui centered lead">Sampaikan kritik / saran anda</p>
       </div>
     </div>
     <div class="fourteen wide column">

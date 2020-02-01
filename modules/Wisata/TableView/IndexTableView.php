@@ -20,7 +20,7 @@ class IndexTableView extends TableView
             Text::make('penulis')->sortable(),
             Text::make('editor')->sortable(),
             Text::make('created_at_present', 'Tanggal Dibuat')->sortable(),
-            RestfulButton::make('wisatum'),
+            RestfulButton::make('wisatum')->only(['edit', 'delete']),
         ];
     }
 }

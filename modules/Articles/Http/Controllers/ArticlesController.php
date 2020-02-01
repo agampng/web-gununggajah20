@@ -69,7 +69,6 @@ class ArticlesController extends Controller
             $namaGambar = $article->gambar;
         }
 
-        // Article::create([
         $article->title = $request->title;
         $article->status = $request->status;
         $article->content = $request->content;
