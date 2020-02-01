@@ -55,7 +55,7 @@ class WisataController extends Controller
 
     public function show(Wisata $wisata)
     {
-        return view('wisata::show', compact(''));
+        return view('wisata::show', compact('wisata'));
     }
 
     public function edit(Wisata $wisata)

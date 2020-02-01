@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Articles\Models\Article;
+use Modules\Wisata\Models\Wisata;
 use Sarfraznawaz2005\VisitLog\Facades\VisitLog;
 
 class HomeController extends Controller
@@ -21,8 +23,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        $artikel = Article::latest()->limit(6)->where('status', 'Aktif')->get();
+        $wisata = Wisata::latest()->limit(6)->get();
         VisitLog::save();
-        return view('home');
+        return view('home', compact(['artikel','wisata']));
 
     }
 }

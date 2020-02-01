@@ -14,19 +14,23 @@
             </div>
         </div>
     </div>
-
     <div class="ui segment attached">
-    {!! form()->bind($article)->put(route('article.update', $article->getKey()))->multipart() !!}
-	{!! form()->textarea('title')->label('Title') !!}
-	{!! form()->textarea('content')->label('Content') !!}
-	{!! form()->text('status')->label('Status') !!}
+    {!! SemanticForm::open()->put()->action(route('article.update', $article))->multipart() !!}
+    {!! SemanticForm::bind($article)->post() !!}
+    {!! SemanticForm::text('title')->label('Judul')->required() !!}
+    {!! SemanticForm::imageEditor('gambar', 'Gambar Judul', ['required' => true]) !!}
+    {{-- {!! SemanticForm::uploader('gambar')->limit(10)->extensions(['jpg', 'png'])->label('judul') !!} --}}
+    {{-- {!! form()->uploader('attachments')->limit(10)->extensions(['jpg', 'png'])->label('Attachments') !!} --}}
+    <label class="required"><b>Konten</b></label>
+    {!! form()->redactor('content') !!}
     <div class="ui divider hidden"></div>
-    {!! form()->action([
-        form()->submit('Save'),
-        form()->link('Cancel', route('article.index'))
-    ]) !!}
+    {!! SemanticForm::select('status', ['Tidak Aktif' => 'Tidak Aktif', 'Aktif' => 'Aktif'])->label('Status')->required() !!}
+    <div class="ui divider hidden"></div>
+    <div class="ui divider hidden"></div>
+    {!! SemanticForm::submit('Simpan') !!}
+    {!! SemanticForm::link('Batalkan', route('article.index')) !!}
+    {!! SemanticForm::close() !!}
 
-    {!! form()->close() !!}
     </div>
 
 @stop

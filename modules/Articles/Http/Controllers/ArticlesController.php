@@ -60,7 +60,24 @@ class ArticlesController extends Controller
 
     public function update(Update $request,Article $article)
     {
-        $article->update($request->all());
+        if ($request->file('gambar')) {
+            $gambar = $request->file('gambar');
+            $namaGambar = time()."_".$gambar->getClientOriginalName();
+            $dirGambar = 'uploadedImage';
+            $gambar->move($dirGambar,$namaGambar);
+        } else {
+            $namaGambar = $article->gambar;
+        }
+
+        // Article::create([
+        $article->title = $request->title;
+        $article->status = $request->status;
+        $article->content = $request->content;
+        $article->gambar = $namaGambar;
+        $article->slug = $request->title;
+        $article->updated_by = auth()->user()->id;
+
+        $article->save();
 
         return redirect()->back()->withSuccess(' saved');
     }

@@ -25,6 +25,11 @@
       $('.ui.card').popup();
     });
   </script>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+  </style>
 </head>
 <body id="home">
 <div class="ui inverted masthead centered segment">
@@ -35,16 +40,19 @@
 
       <div class="ui secondary pointing menu">
         <a class="logo item">
-          startup
+          Desa Gununggajah
         </a>
-        <a class="active item">
-          <i class="flaticon-home"></i> Home
+      <a href="{{ url('/') }}" class="active item">
+          <i class="flaticon-home"></i> Beranda
         </a>
-        <a class="item">
-          <i class="flaticon-mail"></i> Messages
+        <a href="{{ url('/') }}" class="item">
+          <i class="flaticon-mail"></i> Artikel
         </a>
-        <a class="item">
-          <i class="flaticon-heart"></i> Friends
+        <a href="{{ url('/') }}" class="item">
+          <i class="flaticon-mail"></i> Paket Wisata
+        </a>
+        <a href="{{ url('/') }}" class="item">
+          <i class="flaticon-heart"></i> Bank Sampah
         </a>
         <div class="right menu">
           <div class="item">
@@ -61,12 +69,12 @@
 
       <div class="ui hidden transition information">
         <h1 class="ui inverted centered header">
-          An Old Cat Can Learn New Tricks
+          Desa Wisata Gununggajah 
         </h1>
-        <p class="ui centered lead">At least he won't reach his highest potential unless<br/>you enroll him in Cat University's 2013 class.</p>
-        <a href="#" class="large basic inverted animated fade ui button">
-          <div class="visible content">Come to ICU 2013</div>
-          <div class="hidden content">Register Now</div>
+        <p class="ui centered lead">"GUMBREGAH"</p>
+        <a href="#section1" class="large basic inverted animated fade ui button">
+          <div class="visible content">Paket Wisata</div>
+          <div class="hidden content">Info Lebih Lanjut</div>
         </a>
         <div class="ui centerted image">
         <img src="{{asset('img/banner.png')}}" />
@@ -77,82 +85,49 @@
 </div>
 <div class="ui vertical feature segment">
   <div class="ui centered page grid">
+    <div class="row">
+      <div class="eight wide centered column">
+        <h1 class="center aligned ui header">
+          Artikel
+        </h1>
+        <div class="ui horizontal divider"><i class="balck flaticon-camera icon"></i></div>
+        <p class="ui centered lead">Informasi di Desa Gununggajah</p>
+      </div>
+    </div>
     <div class="fourteen wide column">
       <div class="ui three column center aligned stackable divided grid">
-        <div class="column column-feature">
-          <div class="ui icon header">
-            <i class="flaticon-connecting icon"></i>
-            Courses
-          </div>
-          <p>Take your kitty to a cat-ducation course and learn how to treat her well.</p>
-          <p>
+        @foreach($artikel as $a)
+          <div class="column column-feature">
+            <div class="gambar">
+              <img style="width: 15rem; height: 15rem;" src="{{ asset('uploadedImage/'.$a->gambar) }}" alt="">
+            </div>
+            <div class="ui icon header">
+              {{$a->title}}
+            </div>
+            <p>{!! substr($a->content,0,100) !!}</p>
+            <p>
             <a class="ui button" href="#">
-              Learn
-            </a>
-          </p>
-        </div>
-        <div class="column column-feature">
-          <div class="ui icon header">
-            <i class="flaticon-calendar icon"></i>
-            Library
+                Baca
+              </a>
+            </p>
           </div>
-          <p>Dig through our cat library to found out amazing things you can do with your kitty.</p>
-          <p>
-            <a class="ui green right labeled icon button" href="#">
-              Research
-              <i class="right flaticon-move icon"></i>
-            </a>
-          </p>
-        </div>
-        <div class="column column-feature">
-          <div class="ui icon header">
-            <i class="flaticon-speech icon"></i>
-            Community
-          </div>
-          <p>Get feedback on your cat from a community of loving pet owners on our online...</p>
-          <p>
-            <a class="ui button" href="#">
-              Share
-            </a>
-          </p>
-        </div>
+        @endforeach
       </div>
-
-
-
     </div>
   </div>
-
-  <div class="ui centered page grid">
-    <h3 class="subscribe-header">Subscribe to Mailing List</h3>
-    <p class="ui centered lead large">At least he won't reach his highest potential unless you enroll him in Cat University's 2013 class.</p>
-    <div class="ui form eight wide subscribe column">
-
-      <div class="field">
-
-        <div class="ui fluid action input">
-          <input placeholder="Susbcribe..." type="text">
-          <div class="ui button">Susbcribe</div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 
 
-<div class="ui recent-works vertical segment">
+<div class="ui recent-works vertical segment" id="section1">
   <div class="ui very relaxed stackable centered page grid">
     <div class="row">
       <div class="eight wide centered column">
         <h1 class="center aligned ui inverted header">
-          Recent Works
+          Paket Wisata
         </h1>
         <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
-        <p class="ui centered lead">Checkout Our Recently Completed Works<br>you will be amazed!.</p>
+        <p class="ui centered lead">Informasi Paket Wisata di Desa Gununggajah</p>
       </div>
     </div>
     <div class="fourteen wide column">
@@ -160,89 +135,33 @@
 
 
 
-        <div class="column">
+        @foreach ($wisata as $w)
+          <div class="column">
 
-          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
-            <div class="image">
-              <img src="{{asset('img/totoro-horizontal.jpg')}}">
-            </div>
-            <div class="content">
-              <div class="header">My Neighbor Totoro</div>
-              <div class="description">
-                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
+            <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+              <div class="image">
+                <img src="{{ asset('uploadedImage/'.$w->file) }}">
+              </div>
+              <div class="content">
+              <div class="header">{!! $w->title !!}</div>
+                <div class="description">
+                  {!! $w->content !!}
+                </div>
+              </div>
+              <div class="ui two bottom attached buttons">
+                <div class="ui button">
+                  <i class="flaticon-plus icon"></i>
+                  Queue
+                </div>
+                <div class="ui pink button">
+                  <i class="flaticon-play icon"></i>
+                  Info
+                </div>
               </div>
             </div>
-            <div class="ui two bottom attached buttons">
-              <div class="ui button">
-                <i class="flaticon-plus icon"></i>
-                Queue
-              </div>
-              <div class="ui pink button">
-                <i class="flaticon-play icon"></i>
-                Watch
-              </div>
-            </div>
+
           </div>
-
-        </div>
-
-
-
-        <div class="column">
-
-          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
-            <div class="image">
-              <img src="{{asset('img/totoro-horizontal.jpg')}}">
-            </div>
-            <div class="content">
-              <div class="header">My Neighbor Totoro</div>
-              <div class="description">
-                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
-              </div>
-            </div>
-            <div class="ui two bottom attached buttons">
-              <div class="ui button">
-                <i class="flaticon-plus icon"></i>
-                Queue
-              </div>
-              <div class="ui pink button">
-                <i class="flaticon-play icon"></i>
-                Watch
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="column">
-
-          <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
-            <div class="image">
-              <img src="{{asset('img/totoro-horizontal.jpg')}}">
-            </div>
-            <div class="content">
-              <div class="header">My Neighbor Totoro</div>
-              <div class="description">
-                Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by magical spirits.
-              </div>
-            </div>
-            <div class="ui two bottom attached buttons">
-              <div class="ui button">
-                <i class="flaticon-plus icon"></i>
-                Queue
-              </div>
-              <div class="ui pink button">
-                <i class="flaticon-play icon"></i>
-                Watch
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-
+        @endforeach
 
       </div>
     </div>
@@ -360,6 +279,25 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui recent-works vertical segment" id="section1">
+  <div class="ui very relaxed stackable centered page grid">
+    <div class="row">
+      <div class="eight wide centered column">
+        <h1 class="center aligned ui inverted header">
+          Kritik / Saran
+        </h1>
+        <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
+        <p class="ui centered lead">Sampaikan kritik anda</p>
+      </div>
+    </div>
+    <div class="fourteen wide column">
+      <div class="ui three column aligned stackable divided grid">
+
       </div>
     </div>
   </div>
