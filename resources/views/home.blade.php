@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Start UP - Creative Landing Page Template</title>
+  <title>Desa Wisata Gununggajah</title>
 
   <link rel="stylesheet" type="text/css" href="semantic-ui/semantic.css">
   <link rel="stylesheet" type="text/css" href="homepage.css">
@@ -29,6 +29,11 @@
   html {
     scroll-behavior: smooth;
   }
+
+  #desc-wisata > p{
+    color:#8F8F8F
+  }
+
   </style>
 </head>
 <body id="home">
@@ -87,6 +92,7 @@
   <div class="ui centered page grid">
     <div class="row">
       <div class="eight wide centered column">
+        <div class="ui divider hidden"></div>
         <h1 class="center aligned ui header">
           Artikel
         </h1>
@@ -99,12 +105,13 @@
         @foreach($artikel as $a)
           <div class="column column-feature">
             <div class="gambar">
+              <label class="ui label yellow" style="position:absolute;"><small>{{$a->created_at_present}}</small></label>
               <img style="width: 15rem; height: 15rem; object-fit: cover" src="{{ asset('uploadedImage/'.$a->gambar) }}" alt="">
             </div>
             <div class="ui icon header">
               {{$a->title}}
             </div>
-            {!! substr($a->content,0,100) !!}
+            <div style="text-align: left">{!! substr($a->content,0,80) !!}..</div>
             <a class="ui button green" href="#">
                 Baca
               </a>
@@ -117,10 +124,10 @@
 
 
 
-<div class="ui recent-works vertical segment" id="section1">
+<div class="ui recent-works vertical segment">
   <div class="ui very relaxed stackable centered page grid">
     <div class="row">
-      <div class="eight wide centered column">
+      <div class="eight wide centered column" id="section1">
         <h1 class="center aligned ui inverted header">
           Paket Wisata
         </h1>
@@ -130,20 +137,19 @@
     </div>
     <div class="fourteen wide column">
       <div class="ui three column aligned stackable divided grid">
-
-
-
         @foreach ($wisata as $w)
           <div class="column">
-
             <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
               <div class="image">
                 <img style="width: 20rem; height: 20rem; object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
-              <div class="content">
-              <div class="header">{!! $w->title !!}</div>
+              <div class="content" style="height: 10rem">
+                <div class="header">{{ $w->title }}</div>
                 <div class="description">
-                  {!! $w->content !!}
+                  Paket Wisata: {{ $w->kategori_wisata }}
+                </div>
+                <div class="description" id="desc-wisata">
+                  Deskripsi: <br>{!! substr($w->content,0,80) !!}..
                 </div>
               </div>
               <div class="ui two bottom attached buttons">
@@ -172,7 +178,7 @@
     <div class="row">
       <div class="eight wide column">
         <h1 class="ui header">
-          Our Clients
+          Media Sosial
         </h1><div class="ui horizontal divider"><i class="flaticon-settings icon"></i></div>
         <p class="ui centered lead">
           Many Companies Rely on Our Cat Knowledge
@@ -291,6 +297,38 @@
         </h1>
         <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
         <p class="ui centered lead">Sampaikan kritik / saran anda</p>
+        <form class="ui form" method="POST" action="#">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <div class="field">
+              <label style="color: white">Nama</label>
+              <div class="ui transparent input">
+                  <input type="text" name="name" placeholder="Nama">
+              </div>
+          </div>
+          <div class="field">
+              <label style="color: white">Alamat Email</label>
+              <div class="ui transparent input">
+                  <input type="email" name="email" placeholder="email@mail.com">
+              </div>
+          </div>
+          <div class="field">
+              <label style="color: white">Pesan</label>
+              <div class="ui transparent input">
+                  <textarea name="pesan" autocomplete="off" placeholder="Tulis pesan..."></textarea>
+              </div>
+          </div>
+          <div class="ui divider hidden"></div>
+          <div class="field">
+            {!! app('captcha')->display() !!}
+        </div>
+          <div>
+              <div class="center aligned ui inverted header">
+                  <button type="submit" class="ui button primary">
+                      Kirim
+                  </button>
+              </div>
+          </div>
+      </form>
       </div>
     </div>
     <div class="fourteen wide column">
@@ -349,3 +387,7 @@
 </body>
 
 </html>
+
+@push('script')
+  {!! app('captcha')->renderJs() !!}
+@endpush

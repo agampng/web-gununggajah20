@@ -44,7 +44,7 @@ class ArticlesController extends Controller
             'created_by' => auth()->user()->id,
         ]);
 
-        return redirect()->route('article.index')->withSuccess('Articles saved');
+        return redirect()->route('article.index')->withSuccess('Artikel berhasil disimpan');
     }
 
     public function show(Article $article)
@@ -78,13 +78,13 @@ class ArticlesController extends Controller
 
         $article->save();
 
-        return redirect()->back()->withSuccess(' saved');
+        return redirect()->back()->withSuccess('Artikel berhasil diperbarui');
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
 
-        return redirect()->route('article.index')->withSuccess('Article deleted');
+        return redirect()->route('article.index')->withSuccess('Artikel berhasil dihapus');
     }
 }

@@ -87,13 +87,13 @@ class WisataController extends Controller
 
         $wisata->save();
 
-        return redirect()->back()->withSuccess('Paket wisata berhasil diubah');
+        return redirect()->back()->withSuccess('Paket wisata berhasil diperbarui');
     }
 
     public function destroy(Wisata $wisata)
     {
         $wisata->delete();
 
-        return redirect()->route('wisatum.index')->withSuccess(' deleted');
+        return redirect()->route('wisatum.index')->withSuccess('Paket wisata berhasil dihapus');
     }
 }
