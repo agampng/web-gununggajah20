@@ -25,6 +25,7 @@
       $('.ui.card').popup();
     });
   </script>
+   {!! NoCaptcha::renderJs() !!}
   <style>
   html {
     scroll-behavior: smooth;
@@ -316,10 +317,10 @@
               <div class="ui transparent input">
                   <textarea name="pesan" autocomplete="off" placeholder="Tulis pesan..."></textarea>
               </div>
-          </div>
+            </div>
+            {!! NoCaptcha::display() !!}
           <div class="ui divider hidden"></div>
           <div class="field">
-            {!! app('captcha')->display() !!}
         </div>
           <div>
               <div class="center aligned ui inverted header">

@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb22d8d2aa3055a66dab93dee60f1d2a",
+    "content-hash": "f2a6cfb0b2aae55025bb2f60c04c793d",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anhskohbo/no-captcha.git",
-                "reference": "e76c17b64fdbcf9d32b58b1db12175a5966bae2d"
+                "reference": "3b2f7d461e1fc7153e0c724c3ccac7a2db156733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/e76c17b64fdbcf9d32b58b1db12175a5966bae2d",
-                "reference": "e76c17b64fdbcf9d32b58b1db12175a5966bae2d",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/3b2f7d461e1fc7153e0c724c3ccac7a2db156733",
+                "reference": "3b2f7d461e1fc7153e0c724c3ccac7a2db156733",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.0.*",
+                "illuminate/support": "^5.0|^6.0",
                 "php": ">=5.5.5"
             },
             "require-dev": {
@@ -64,7 +64,7 @@
                 "no-captcha",
                 "recaptcha"
             ],
-            "time": "2019-08-27T02:13:31+00:00"
+            "time": "2019-10-03T06:42:31+00:00"
         },
         {
             "name": "balping/json-raw-encoder",

@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "anhskohbo/no-captcha": "^3.1",
         "bensampo/laravel-enum": "^1.26",
         "consoletvs/charts": "6.*",
         "danielstjules/stringy": "^3.1",
