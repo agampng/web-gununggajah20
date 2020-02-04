@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/iconfonts/flaticon.css') }}">
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfonts/flaticon.css') }}"> --}}
 
+  
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script type="text/javascript" src="{{ asset('css/homepage/semantic.js') }}"></script>
   <script type="text/javascript" src="{{ asset('css/homepage.js') }}"></script>
@@ -182,7 +183,6 @@
           Media Sosial
         </h1><div class="ui horizontal divider"><i class="flaticon-settings icon"></i></div>
         <p class="ui centered lead">
-          Many Companies Rely on Our Cat Knowledge
         </p>
         <br/>
       </div>
@@ -289,16 +289,31 @@
   </div>
 </div>
 
-<div class="ui recent-works vertical segment" id="section1">
+<div class="ui recent-works vertical segment">
   <div class="ui very relaxed stackable centered page grid">
     <div class="row">
       <div class="eight wide centered column">
-        <h1 class="center aligned ui inverted header">
+        <h1 class="center aligned ui inverted header" id="sectionContact">
           Kritik / Saran
         </h1>
         <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
         <p class="ui centered lead">Sampaikan kritik / saran anda</p>
-        <form class="ui form" method="POST" action="#">
+        @if ($message = Session::get('success'))
+        <div class="ui info message">
+          <ul class="list">
+            <li>{{ $message }}</li>
+          </ul>
+        </div>
+      @endif
+
+      @if ($message = Session::get('error'))
+        <div class="ui error message">
+          <ul>
+                  <li>{{ $message }}</li>
+          </ul>
+        </div>
+      @endif
+        <form id="form-pesan" class="ui form" method="POST" action="{{ url('contact-form') }}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="field">
               <label style="color: white">Nama</label>
@@ -329,6 +344,8 @@
                   </button>
               </div>
           </div>
+
+          
       </form>
       </div>
     </div>
@@ -392,3 +409,4 @@
 @push('script')
   {!! app('captcha')->renderJs() !!}
 @endpush
+
