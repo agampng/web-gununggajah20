@@ -11,7 +11,7 @@
     <div class="ui grid container stackable" style="padding: 1rem;">
         <div class="sixteen wide column">
             <div class="ui breadcrumb">
-                <a href="{{ route('home.index') }}" class="section">Home</a>
+                <a href="{{ route('home.index') }}" class="section">Beranda</a>
                 <div class="divider"> / </div>
                 <a href="{{ route('artikel.home.index') }}" class="section">Artikel</a>
                 <div class="divider"> / </div>
@@ -25,7 +25,7 @@
                 <div class="sixteen wide column computer-only image-title">
                     <h1 class="ui header" style="color: #fff">{{ $post->title }}</h1>
                     <h2 class="ui sub header" style="color: #fff">
-                        {{ $post->created_at->toFormattedDateString() }}
+                        {{ $post->createdBy->name }} | {{ $post->created_at_present }}
                     </h2>
                 </div>
 

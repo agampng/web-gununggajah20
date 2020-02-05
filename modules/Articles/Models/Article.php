@@ -2,6 +2,7 @@
 
 namespace Modules\Articles\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Laravolt\Suitable\AutoFilter;
 use Laravolt\Suitable\AutoSort;

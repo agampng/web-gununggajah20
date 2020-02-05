@@ -9,42 +9,59 @@
   <!-- Site Properities -->
   <title>Desa Wisata Gununggajah</title>
 
-  <link rel="stylesheet" type="text/css" href="semantic-ui/semantic.css">
-  <link rel="stylesheet" type="text/css" href="homepage.css">
-  <link rel="stylesheet" type="text/css" href="iconfonts/flaticon.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/semantic.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/iconfonts/flaticon.css') }}">
+  <link href="{{ asset('plugin/slick/slick.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('plugin/slick/slick-theme.css') }}" rel="stylesheet" type="text/css">
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfonts/flaticon.css') }}"> --}}
 
   
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script type="text/javascript" src="{{ asset('css/homepage/semantic.js') }}"></script>
   <script type="text/javascript" src="{{ asset('css/homepage.js') }}"></script>
+  <script src="{{ asset('plugin/slick/slick.min.js')  }}"></script>
   <script>
     $(function(){
       $('.ui.card').popup();
     });
+    $(document).ready(function () {
+      $('.one-time').slick({
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: true,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+      });
+    });
   </script>
    {!! NoCaptcha::renderJs() !!}
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  #desc-wisata > p{
-    color:#8F8F8F
-  }
-
+        .slick-prev:before, .slick-next:before {
+          color:#B2B5BB !important;
+        }
+        .slick-prev {
+          z-index: 1
+        }
+        .one-time {
+          padding-top: 2em;
+          padding-bottom: 2em;
+        }
+    html {
+      scroll-behavior: smooth;
+    }
+    #desc-wisata > p{
+      color:#8F8F8F
+    }
   </style>
 </head>
 <body id="home">
 <div class="ui inverted masthead centered segment">
   <div class="ui page grid">
     <div class="column">
-
-
-
       <div class="ui secondary pointing menu">
         <a class="logo item">
           <img src="{{ asset(config('laravolt.ui.brand_image')) }}" class="ui image centered" alt="" style="width:  60px; margin-bottom: 10px">
@@ -85,8 +102,13 @@
           <div class="hidden content">Info Lebih Lanjut</div>
         </a>
         <div class="ui centerted image">
-        <img src="{{asset('img/banner.png')}}" />
-        </div>
+          <div class="one-time" style="height: 40rem">
+              <img style="object-fit: cover" src="{{asset('img/banner.png')}}" />
+              <img src="{{asset('img/totoro-horizontal.jpg')}}" />
+              <img src="{{asset('img/liveforms.png')}}" />
+              <img src="{{asset('img/klaten-logo.png')}}" />
+          </div>
+          </div>
       </div>
     </div>
   </div>

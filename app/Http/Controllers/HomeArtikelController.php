@@ -15,10 +15,10 @@ class HomeArtikelController extends Controller
     public function index()
     {
         $articles = Article::where('status', 'Aktif')->latest()
-            ->take(9)->get();
+            ->take(12)->get();
         $articlesTop = $articles->first();
-        $articlesRight = $articles->slice(3)->take(6);
-        $articlesLeft = $articles->slice(1)->take(2);
+        $articlesRight = $articles->slice(3)->take(9);
+        $articlesLeft = $articles->slice(1)->take(3);
 
         return view('artikel.index')->with('top', $articlesTop)
         ->with('left', $articlesLeft)
