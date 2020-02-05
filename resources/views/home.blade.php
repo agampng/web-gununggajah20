@@ -47,12 +47,13 @@
 
       <div class="ui secondary pointing menu">
         <a class="logo item">
+          <img src="{{ asset(config('laravolt.ui.brand_image')) }}" class="ui image centered" alt="" style="width:  60px; margin-bottom: 10px">
           Desa Gununggajah
         </a>
       <a href="{{ url('/') }}" class="active item">
           <i class="flaticon-home"></i> Beranda
         </a>
-        <a href="{{ url('/') }}" class="item">
+        <a href="{{ url('/artikel') }}" class="item">
           <i class="flaticon-mail"></i> Artikel
         </a>
         <a href="{{ url('/') }}" class="item">
@@ -309,7 +310,7 @@
       @if ($message = Session::get('error'))
         <div class="ui error message">
           <ul>
-                  <li>{{ $message }}</li>
+              <li>{{ $message }}</li>
           </ul>
         </div>
       @endif

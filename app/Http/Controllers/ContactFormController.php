@@ -34,7 +34,7 @@ class ContactFormController extends Controller
         // dd($validator->errors());
 
         if ($validator->fails()) {
-            return Redirect('/#sectionContact')->with('error', 'Gagal dikirim');
+            return Redirect('/#sectionContact')->with('error', 'Kritik/saran gagal dikirim, pastikan semua form terisi dengan benar');
         }
 
         $pesan = new Pesan;
@@ -44,7 +44,7 @@ class ContactFormController extends Controller
         $pesan->pesan = $request->pesan;
 
         if($pesan->save()){
-            return Redirect('/#sectionContact')->with('success', 'Berhasil dikirim');
+            return Redirect('/#sectionContact')->with('success', 'Kritik/saran berhasil dikirim');
         }
 
     }

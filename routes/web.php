@@ -13,7 +13,11 @@
 
 Route::redirect('/login', 'auth/login');
 Route::get('/', 'HomeController@index')->name('home.index')->middleware('guest');
-Route::get('admin', ['uses' => 'DashboardController', 'as' => 'admin.dashboard'])->middleware('auth');;
+Route::get('admin', ['uses' => 'DashboardController', 'as' => 'admin.dashboard'])->middleware('auth');
+
+//artikel guest
+Route::get('/artikel', 'HomeArtikelController@index')->name('artikel.home.index');
+Route::get('/artikel/{slug}', 'HomeArtikelController@show')->name('artikel.home.show');
 
 Route::get('contact-form', 'ContactFormController@create')->name('contact-form.create');
 Route::post('contact-form', 'ContactFormController@store')->name('contact-form.store');

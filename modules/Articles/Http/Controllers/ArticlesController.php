@@ -31,16 +31,19 @@ class ArticlesController extends Controller
 //        Article::create($request->all());
 
         $gambar = $request->file('gambar');
-        $namaGambar = time()."_".$gambar->getClientOriginalName();
+        $tmpNamaGambar = str_slug($gambar->getClientOriginalName(), '-');
+        $namaGambar = time()."_".$tmpNamaGambar;
         $dirGambar = 'uploadedImage';
         $gambar->move($dirGambar,$namaGambar);
+
+        $slug = str_slug($request->title, '-');
 
         Article::create([
             'title' => $request->title,
             'status' => $request->status,
             'content' => $request->content,
             'gambar' => $namaGambar,
-            'slug' => $request->title,
+            'slug' => $slug,
             'created_by' => auth()->user()->id,
         ]);
 
