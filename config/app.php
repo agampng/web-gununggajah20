@@ -170,6 +170,7 @@ return [
          */
         Modules\Articles\Providers\ServiceProvider::class,
         Modules\Wisata\Providers\ServiceProvider::class,
+        Modules\Pesan\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...

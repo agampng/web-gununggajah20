@@ -8,7 +8,7 @@
         </div>
         <div class="right menu">
             <div class="item">
-                <a href="{{ route('wisatum.create') }}" class="ui button primary"><i class="icon plus"></i> Add</a>
+                <a href="{{ route('wisatum.create') }}" class="ui button primary"><i class="icon plus"></i>Tambah Wisata</a>
             </div>
         </div>
     </div>

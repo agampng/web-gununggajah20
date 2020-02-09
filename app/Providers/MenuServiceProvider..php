@@ -43,5 +43,11 @@ class MenuServiceProvider extends ServiceProvider
         $menu->add('Paket Wisata', 'admin/wisatum')
             ->data('icon', 'archive')
             ->active('admin/wisatum/*');
+            
+        $menu->add('Kritik / Saran', 'admin/pesan')
+            ->data('icon', 'envelope outline icon')
+            ->active('admin/pesan/*');
+        
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Articles\Http\Requests;
+namespace Modules\Pesan\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -14,7 +14,7 @@ class Update extends Store
     public function rules()
     {
         return [
-            'title' => ['required', 'max:255'],
+            'title' => ['required'],
             'content' => ['required'],
             'status' => ['required'],
         ];

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Articles\Http\Requests;
+namespace Modules\Pesan\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Update extends Store
+class Store extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,7 @@ class Update extends Store
     public function rules()
     {
         return [
-            'title' => ['required', 'max:255'],
+            'title' => ['required'],
             'content' => ['required'],
             'status' => ['required'],
         ];

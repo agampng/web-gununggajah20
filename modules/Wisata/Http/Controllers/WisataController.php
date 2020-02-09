@@ -19,7 +19,7 @@ class WisataController extends Controller
             ->select('cb.name as penulis', 'ub.name as editor', 'wisata.*')
             ->search(request('search'))->paginate();
 
-        return (IndexTableView::make($items))->view('wisata::index');
+        return (IndexTableView::make($items)->title('Paket Wisata'))->view('wisata::index');
     }
 
     public function create()

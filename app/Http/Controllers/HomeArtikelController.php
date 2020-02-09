@@ -17,7 +17,7 @@ class HomeArtikelController extends Controller
         $articles = Article::where('status', 'Aktif')->latest()
             ->take(12)->get();
         $articlesTop = $articles->first();
-        $articlesRight = $articles->slice(3)->take(9);
+        $articlesRight = $articles->slice(4)->take(9);
         $articlesLeft = $articles->slice(1)->take(3);
 
         return view('artikel.index')->with('top', $articlesTop)
