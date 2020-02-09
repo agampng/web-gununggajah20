@@ -80,12 +80,6 @@
           <i class="flaticon-heart"></i> Bank Sampah
         </a>
         <div class="right menu">
-          <div class="item">
-            <div class="ui icon input">
-              <input placeholder="Search..." type="text">
-              <i class="flaticon-position link icon"></i>
-            </div>
-          </div>
           <a class="ui item" href="{{ url('/auth/login') }}">
             Login
           </a>

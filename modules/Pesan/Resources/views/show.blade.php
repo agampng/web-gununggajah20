@@ -4,7 +4,7 @@
 
     <div class="ui secondary menu">
         <div class="item">
-            <h2> Detail</h2>
+            <h2>Balas kritik / saran</h2>
         </div>
         <div class="right menu">
             <div class="item">
@@ -16,16 +16,28 @@
     </div>
 
     <table class="ui table definition">
-        <tr><td>Id</td><td>{{ $pesan->id }}</td></tr>
-        {{-- <tr><td>Title</td><td>{{ $pesan->title }}</td></tr> --}}
-        {{-- <tr><td>Content</td><td>{{ $pesan->content }}</td></tr> --}}
-        {{-- <tr><td>Status</td><td>{{ $pesan->status }}</td></tr> --}}
-        {{-- <tr><td>Gambar</td><td><img width="150px" src="{{ url('/uploadedImage/'.$pesan->gambar) }}"></td></tr> --}}
-        {{-- <tr><td>Slug</td><td>{{ $pesan->slug }}</td></tr> --}}
-        {{-- <tr><td>Created by</td><td>{{ $pesan->created_by }}</td></tr> --}}
-        {{-- <tr><td>Updated by</td><td>{{ $pesan->updated_by }}</td></tr> --}}
-        <tr><td>Created at</td><td>{{ $pesan->created_at }}</td></tr>
-        <tr><td>Updated at</td><td>{{ $pesan->updated_at }}</td></tr>
+        <tr><td>Pengirim</td><td>{{ $pesan->name }}</td></tr>
+        <tr><td>Alamat email</td><td>{{ $pesan->email }}</td></tr>
+        <tr><td>Kritik / Saran</td><td>{{ $pesan->pesan }}</td></tr>
+        <tr><td>Tanggal</td><td>{{ $pesan->created_at_present }}</td></tr>
     </table>
+
+    <div class="ui segment attached">
+        @foreach ($replies as $reply)
+        <table class="ui table definition">
+            <tr><td>Jawaban</td><td>{{ $reply->reply }}</td></tr>
+            <tr><td>Tanggal</td><td>{{ $reply->created_at_present }}</td></tr>
+            <tr><td>Dijawab oleh</td><td>{{ $reply->createdBy->name }}</td></tr>
+        </table>
+        @endforeach
+    </div>
+    <div class="ui divider hidden"></div>
+    <div class="ui segment attached">
+        {!! SemanticForm::open()->post()->action(route('pesan.update', $pesan))->multipart() !!}
+        {!! SemanticForm::textarea('reply')->label('Jawaban')->required() !!}
+        {!! SemanticForm::submit('Simpan') !!}
+        {!! SemanticForm::link('Batalkan', route('pesan.index')) !!}
+        {!! SemanticForm::close() !!}
+    </div>
 
 @stop

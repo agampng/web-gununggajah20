@@ -87,6 +87,7 @@
                     <p>{{ $item->created_at_present }}</p>
                 </div>
                 <div class="ui divider hidden"></div>
+                <div class="ui divider"></div>
             </a>
             @endforeach
         </div>

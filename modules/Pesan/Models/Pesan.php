@@ -2,6 +2,7 @@
 
 namespace Modules\Pesan\Models;
 
+use App\Reply;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Laravolt\Suitable\AutoFilter;
@@ -20,7 +21,7 @@ class Pesan extends Model implements HasMedia
 
     protected $guarded = [];
 
-    protected $searchableColumns = ["title", "content", "status", "slug", "created_by", "updated_by"];
+    // protected $searchableColumns = ["title", "content", "status", "slug", "created_by", "updated_by"];
 
 
     public function createdBy()
@@ -41,5 +42,10 @@ class Pesan extends Model implements HasMedia
     public function getUpdatedAtPresentAttribute()
     {
         return $this->updated_at->isoFormat('DD MMMM YYYY');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class, 'pesan_id', 'id');
     }
 }
