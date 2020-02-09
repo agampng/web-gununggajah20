@@ -56,6 +56,9 @@
     #desc-wisata > p{
       color:#8F8F8F
     }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body id="home">
@@ -113,7 +116,7 @@
       <div class="eight wide centered column">
         <div class="ui divider hidden"></div>
         <h1 class="center aligned ui header">
-          Artikel
+          Berita & Artikel
         </h1>
         <div class="ui horizontal divider"><i class="balck flaticon-camera icon"></i></div>
         <p class="ui centered lead">Informasi di Desa Gununggajah</p>
@@ -131,12 +134,14 @@
               {{$a->title}}
             </div>
             <div style="text-align: left">{!! substr($a->content,0,80) !!}..</div>
-            <a class="ui button green" href="#">
+            <a class="ui button green" href="{{ route('artikel.home.show', ['slug' => $a->slug]) }}">
                 Baca
               </a>
           </div>
         @endforeach
       </div>
+      <div class="ui divider hidden"></div>
+      <a href="{{ url('/artikel') }}" style="float: right">Lihat selengkapnya</a>
     </div>
   </div>
 </div>

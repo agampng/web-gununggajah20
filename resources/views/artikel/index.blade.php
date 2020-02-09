@@ -69,11 +69,13 @@
                             {{ $top->createdBy->name }} | {{ $item->created_at_present }}
                         </h2>
                         <div style="padding: 1rem 0;">
-                            {!! mb_substr($item->content, 0, 400) !!}
+                            {!! mb_substr($item->content, 0, 400).'..' !!}
                         </div>
                     </div>
                 </div>
             </a>
+            <div class="ui divider"></div>
+            <div class="ui divider hidden"></div>
             @endforeach
 
         </div>
