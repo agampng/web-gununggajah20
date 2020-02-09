@@ -6,11 +6,6 @@
         <div class="item">
             <h2></h2>
         </div>
-        <div class="right menu">
-            <div class="item">
-                <a href="{{ route('pesan.create') }}" class="ui button primary"><i class="icon plus"></i> Add</a>
-            </div>
-        </div>
     </div>
 
     {!! $table !!}

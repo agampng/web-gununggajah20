@@ -5,6 +5,7 @@ namespace Modules\Pesan\Models;
 use App\Reply;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Laravolt\Suitable\AutoFilter;
 use Laravolt\Suitable\AutoSort;
 use Sofa\Eloquence\Eloquence;
@@ -16,6 +17,7 @@ class Pesan extends Model implements HasMedia
     use AutoSort, AutoFilter;
     use Eloquence;
     use HasMediaTrait;
+    use Notifiable;
 
     protected $table = 'pesan';
 

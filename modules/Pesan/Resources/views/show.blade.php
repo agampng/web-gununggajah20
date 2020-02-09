@@ -35,7 +35,12 @@
     <div class="ui segment attached">
         {!! SemanticForm::open()->post()->action(route('pesan.update', $pesan))->multipart() !!}
         {!! SemanticForm::textarea('reply')->label('Jawaban')->required() !!}
-        {!! SemanticForm::submit('Simpan') !!}
+        <small style="color: #7A7A7A;">
+            <i class="info circle icon"></i>
+            Pesan akan dikirimkan melalui email
+        </small>
+        <div class="ui divider hidden"></div>
+        {!! SemanticForm::submit('Kirim') !!}
         {!! SemanticForm::link('Batalkan', route('pesan.index')) !!}
         {!! SemanticForm::close() !!}
     </div>

@@ -20,10 +20,10 @@ class CreateRepliesTable extends Migration
             $table->unsignedBigInteger('user_id')->unsigned()->nullable();
             $table->timestamps();
 
-            $table->foreign('pesan_id')->references('id')->on('pesan');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('pesan_id')->references('id')->on('pesan')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-    
+    }
 
     /**
      * Reverse the migrations.

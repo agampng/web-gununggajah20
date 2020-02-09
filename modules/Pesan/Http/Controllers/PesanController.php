@@ -2,6 +2,7 @@
 
 namespace Modules\Pesan\Http\Controllers;
 
+use App\Reply;
 use Illuminate\Routing\Controller;
 use Modules\Pesan\Http\Requests\Store;
 use Modules\Pesan\Http\Requests\Update;
@@ -49,8 +50,9 @@ class PesanController extends Controller
 
     public function show(Pesan $pesan)
     {
+        $replies = Reply::where('pesan_id', $pesan->id)->get();
 
-        return view('pesan::show', compact('pesan'));
+        return view('pesan::show', compact('pesan', 'replies'));
     }
 
     public function edit(Pesan $pesan)
@@ -60,23 +62,16 @@ class PesanController extends Controller
 
     public function update(Update $request,Pesan $pesan)
     {
-        if ($request->file('gambar')) {
-            $gambar = $request->file('gambar');
-            $namaGambar = time()."_".$gambar->getClientOriginalName();
-            $dirGambar = 'uploadedImage';
-            $gambar->move($dirGambar,$namaGambar);
-        } else {
-            $namaGambar = $pesan->gambar;
-        }
+        // dd($pesan);
 
-        $pesan->title = $request->title;
-        $pesan->status = $request->status;
-        $pesan->content = $request->content;
-        $pesan->gambar = $namaGambar;
-        $pesan->slug = $request->title;
-        $pesan->updated_by = auth()->user()->id;
+        $reply = new Reply;
+        $reply->reply = $request->reply;
+        $reply->pesan_id = $pesan->id;
+        $reply->user_id = auth()->user()->id;
 
-        $pesan->save();
+        $reply->save();
+
+        event(new \App\Events\ReplySubmitted($reply));
 
         return redirect()->back()->withSuccess('Artikel berhasil diperbarui');
     }
