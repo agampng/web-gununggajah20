@@ -43,7 +43,7 @@
         <div class="sixteen wide column">
             @if ($top !== null)
             <a href="{{ route('artikel.home.show', ['slug' => $top->slug]) }}">
-                <div class="sixteen wide bottom aligned column" style="padding: 2rem;
+                <div class="sixteen wide bottom aligned column" style="padding: 2rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);
             background-image: url({{ url('uploadedImage/'.$top->gambar) }}); background-size: cover; background-position: center">
                     <div class="sixteen wide column" style="height: 50vh"></div>
                     <div class="sixteen wide column image-title">
@@ -61,7 +61,7 @@
             <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
                 <div class="sixteen wide column">
                     <div class="sixteen wide column image-left" style="background-image: url({{ url('uploadedImage/'.$item->gambar) }});
-                    background-size: cover; height: 40vh; background-position: center">
+                    background-size: cover; height: 40vh; background-position: center; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">
                     </div>
                     <div class="sixteen wide column" style="padding: 1rem;">
                         <h1 class="ui center aligned header">{{ $item->title }}</h1>
@@ -78,20 +78,15 @@
 
         </div>
         <div class="six wide column">
+            <h3>Artikel Lainnya</h3>
             @foreach ($right as $item)
             <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="sixteen wide column image-right" style="background-image: url({{ url('uploadedImage/'.$item->gambar) }});
-            background-size: cover; padding: 1rem; margin-bottom: 1rem; background-position: center">
-                    <div class="sixteen wide column" style="height: 15vh">
-
-                    </div>
-                    <div class="sixteen wide column bottom aligned image-title">
-                        <h2 class="ui header" style="color: #fff;">{{ $item->title }}</h2>
-                        <h3 class="ui aligned sub header" style="color: #fff">
-                            {{ $top->createdBy->name }} | {{ $item->created_at_present }}
-                        </h3>
-                    </div>
+                <div class="six wide column">
+                    <img class="ui small left floated image" style="object-fit: cover; height: 5rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);" src="{{ url('uploadedImage/'.$item->gambar) }}">
+                    <h5>{{ $item->title}}</h5>
+                    <p>{{ $item->created_at_present }}</p>
                 </div>
+                <div class="ui divider hidden"></div>
             </a>
             @endforeach
         </div>

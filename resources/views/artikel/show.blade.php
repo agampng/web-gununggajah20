@@ -20,7 +20,7 @@
         </div>
         <div class="sixteen wide column">
             <div class="sixteen wide bottom aligned column image-header" style="padding: 2rem;
-            background-image: url({{ url('uploadedImage/'.$post->gambar) }}); background-size: cover;">
+            background-image: url({{ url('uploadedImage/'.$post->gambar) }});  background-size: cover; background-position: center">
                 <div class="sixteen wide column computer-only" style="height: 50vh"></div>
                 <div class="sixteen wide column computer-only image-title">
                     <h1 class="ui header" style="color: #fff">{{ $post->title }}</h1>
