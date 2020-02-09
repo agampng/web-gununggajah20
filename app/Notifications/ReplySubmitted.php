@@ -46,7 +46,7 @@ class ReplySubmitted extends Notification
         return (new MailMessage)
             ->subject('Pesan baru dari Web Gununggajah')
             ->greeting('Hello, ' . $this->reply->sentBy->name . '!')
-            ->line('Jawaban dari Gununggajah: '.$this->reply->reply)
+            ->line('Jawaban dari Website Gununggajah: '.$this->reply->reply)
             ->line('Terima kasih');
     }
 
