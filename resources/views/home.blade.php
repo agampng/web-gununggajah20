@@ -68,16 +68,16 @@
           Desa Gununggajah
         </a>
         <a href="{{ url('/') }}" class="active item" style="color: white;">
-          <i class="flaticon-home"></i> Beranda
+          Beranda
         </a>
         <a href="{{ url('/artikel') }}" class="item" style="color: white;">
-          <i class="flaticon-mail"></i> Artikel
+          Artikel
         </a>
         <a href="{{ url('/') }}" class="item" style="color: white;">
-          <i class="flaticon-mail"></i> Paket Wisata
+          Paket Wisata
         </a>
         <a href="{{ url('/') }}" class="item" style="color: white;">
-          <i class="flaticon-heart"></i> Bank Sampah
+          Bank Sampah
         </a>
         <div class="right menu">
           <div class="item">
