@@ -67,16 +67,16 @@
           <img src="{{ asset(config('laravolt.ui.brand_image')) }}" class="ui image centered" alt="" style="width:  60px; margin-bottom: 10px">
           Desa Gununggajah
         </a>
-      <a href="{{ url('/') }}" class="active item">
+        <a href="{{ url('/') }}" class="active item" style="color: white;">
           <i class="flaticon-home"></i> Beranda
         </a>
-        <a href="{{ url('/artikel') }}" class="item">
+        <a href="{{ url('/artikel') }}" class="item" style="color: white;">
           <i class="flaticon-mail"></i> Artikel
         </a>
-        <a href="{{ url('/') }}" class="item">
+        <a href="{{ url('/') }}" class="item" style="color: white;">
           <i class="flaticon-mail"></i> Paket Wisata
         </a>
-        <a href="{{ url('/') }}" class="item">
+        <a href="{{ url('/') }}" class="item" style="color: white;">
           <i class="flaticon-heart"></i> Bank Sampah
         </a>
         <div class="right menu">
