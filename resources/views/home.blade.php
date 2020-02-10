@@ -65,24 +65,23 @@
 <div class="ui inverted masthead centered segment">
   <div class="ui page grid">
     <div class="column">
-      <div class="ui secondary pointing menu">
+      <div class="ui secondary pointing menu" style="vertical-align: middle;">
         <a class="logo item">
-          <img src="{{ asset(config('laravolt.ui.brand_image')) }}" class="ui image centered" alt="" style="width:  60px; margin-bottom: 10px">
-          Desa Gununggajah
-        </a>
-      <a href="{{ url('/') }}" class="active item">
-          <i class="flaticon-home"></i> Beranda
-        </a>
-        <a href="{{ url('/artikel') }}" class="item">
-          <i class="flaticon-mail"></i> Artikel
-        </a>
-        <a href="{{ url('/') }}" class="item">
-          <i class="flaticon-mail"></i> Paket Wisata
-        </a>
-        <a href="{{ url('/') }}" class="item">
-          <i class="flaticon-heart"></i> Bank Sampah
+          <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
         </a>
         <div class="right menu">
+          <a href="{{ url('/') }}" class="active item">
+            <i class="flaticon-home"></i> Beranda
+          </a>
+          <a href="{{ url('/artikel') }}" class="item">
+            <i class="flaticon-mail"></i> Artikel
+          </a>
+          <a href="{{ url('/') }}" class="item">
+            <i class="flaticon-mail"></i> Paket Wisata
+          </a>
+          <a href="{{ url('/') }}" class="item">
+            <i class="flaticon-heart"></i> Bank Sampah
+          </a>
           <a class="ui item" href="{{ url('/auth/login') }}">
             Login
           </a>
