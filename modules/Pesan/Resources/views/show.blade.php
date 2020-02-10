@@ -23,7 +23,7 @@
     </table>
 
     <div class="ui segment attached">
-        <h3>Balasan</h3>
+        <h3>Pesan dikirim</h3>
         @foreach ($replies as $reply)
         <table class="ui table definition">
             <tr><td>Pesan</td><td>{{ $reply->reply }}</td></tr>
