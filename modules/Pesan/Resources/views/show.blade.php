@@ -23,11 +23,12 @@
     </table>
 
     <div class="ui segment attached">
+        <h3>Balasan</h3>
         @foreach ($replies as $reply)
         <table class="ui table definition">
-            <tr><td>Jawaban</td><td>{{ $reply->reply }}</td></tr>
+            <tr><td>Pesan</td><td>{{ $reply->reply }}</td></tr>
             <tr><td>Tanggal</td><td>{{ $reply->created_at_present }}</td></tr>
-            <tr><td>Dijawab oleh</td><td>{{ $reply->createdBy->name }}</td></tr>
+            <tr><td>Dikirim oleh</td><td>{{ $reply->createdBy->name }}</td></tr>
         </table>
         @endforeach
     </div>
