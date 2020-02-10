@@ -56,7 +56,9 @@ class HomeArtikelController extends Controller
     {
         $post = Article::where('slug', $slug)->firstOrFail();
 
-        return view('artikel.show')->with('post', $post);
+        $articles = Article::where('status', 'Aktif')->whereNotIn('slug', [$slug])->latest()
+            ->take(5)->get();
+        return view('artikel.show')->with('post', $post)->with('articles', $articles);
     }
 
     /**

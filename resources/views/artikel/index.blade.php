@@ -3,7 +3,7 @@
 
 @section('body')
   {{-- background: #FFCB00; --}}
-<div class="row row-header masthead" style="padding: 1rem 10%">
+<div class="row row-header masthead" style="padding: 1rem 9%">
     <div class="ui secondary pointing menu">
         <a class="logo item">
             <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
@@ -26,7 +26,9 @@
           </a>
         </div>
       </div>
+      <div class="ui divider hidden"></div>
     <h1 class="ui header center aligned" style="color: white;">Berita & Artikel</h1>
+    <div style="height: 5vh"></div>
 </div>
 
 {{-- <div class=""> --}}
@@ -85,7 +87,7 @@
                 <div class="six wide column">
                     <img class="ui small left floated image" style="object-fit: cover; height: 5rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);" src="{{ url('uploadedImage/'.$item->gambar) }}">
                     <h5>{{ $item->title}}</h5>
-                    <p>{{ $item->created_at_present }}</p>
+                    <small>{{ $item->created_at_present }}</small>
                 </div>
                 <div class="ui divider hidden"></div>
                 <div class="ui divider"></div>
@@ -94,6 +96,48 @@
         </div>
     </div>
 </div>
+
+<div class="ui inverted footer vertical segment center">
+    <div class="ui stackable center aligned page grid">
+        <div class="four column row">
+
+        <div class="column" style="text-align: left;">
+            <h5 class="ui inverted header">KONTAK KAMI</h5>
+            <div class="ui inverted link list">
+            <a class="item">Anang Wibowo</a>
+            <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
+            <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
+            <a class="item">Email: anangwibowo918@gmail.com</a>
+            </div>
+        </div>
+        <div class="column" style="text-align: left;">
+            <h5 class="ui inverted header">Community</h5>
+            <div class="ui inverted link list">
+            <a class="item">BBS</a>
+            <a class="item">Careers</a>
+            <a class="item">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="column" style="text-align: left;">
+            <h5 class="ui inverted header">Community</h5>
+            <div class="ui inverted link list">
+            <a class="item">BBS</a>
+            <a class="item">Careers</a>
+            <a class="item">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="column" style="text-align: left;">
+            <h5 class="ui inverted header">Community</h5>
+            <div class="ui inverted link list">
+            <a class="item">BBS</a>
+            <a class="item">Careers</a>
+            <a class="item">Privacy Policy</a>
+            </div>
+        </div>
+        </div>
+        <h5 class="ui inverted header">&copy; {{date('Y')}} <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</h5>
+    </div>
+    </div>
 
 
 @endsection

@@ -59,32 +59,51 @@
     a:hover {
       text-decoration: underline;
     }
+    @media only screen and (max-width:620px){
+        .computer-only {
+            display: none !important;
+        }
+        .mobile-only {
+            display: inline !important;
+        }
+        .row-header {
+            margin-top: 3em;
+        }
+        .sixteen.wide.bottom.aligned.column.image-header {
+            height: 25vh !important;
+            background-position: center !important;
+        }
+        .sixteen.wide.column.article-content {
+            padding: 0 !important;
+            padding-bottom: 1rem !important;
+        }
+    }
   </style>
 </head>
 <body id="home">
 <div class="ui inverted masthead centered segment">
   <div class="ui page grid">
     <div class="column">
-      <div class="ui secondary pointing menu" style="vertical-align: middle;">
+      <div class="ui secondary pointing menu">
         <a class="logo item">
           <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
         </a>
         <div class="right menu">
-          <a href="{{ url('/') }}" class="active item">
-            <i class="flaticon-home"></i> Beranda
+          <a href="{{ url('/') }}" class="active item" style="color: #ffffff;">
+            Beranda
           </a>
-          <a href="{{ url('/artikel') }}" class="item">
-            <i class="flaticon-mail"></i> Artikel
+          <a href="{{ url('/artikel') }}" class="item" style="color: #ffffff;">
+            Artikel
           </a>
-          <a href="{{ url('/') }}" class="item">
-            <i class="flaticon-mail"></i> Paket Wisata
+          <a href="{{ url('/') }}" class="item" style="color: #ffffff;">
+            Paket Wisata
           </a>
-          <a href="{{ url('/') }}" class="item">
-            <i class="flaticon-heart"></i> Bank Sampah
+          <a href="{{ url('/') }}" class="item" style="color: #ffffff;">
+            Bank Sampah
           </a>
-          <a class="ui item" href="{{ url('/auth/login') }}">
-            Login
-          </a>
+          <div class="item">
+            <a href="{{ url('/auth/login') }}" class="ui primary button" style="border-color: #E7EEF4; border-width: 0.15rem; border-style: solid; border-radius: 50px; background-color: #1E6A9A; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">LOGIN</a>
+        </div>
         </div>
       </div>
 
@@ -382,23 +401,16 @@
   <div class="ui stackable center aligned page grid">
     <div class="four column row">
 
-      <div class="column">
-        <h5 class="ui inverted header">Courses</h5>
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">KONTAK KAMI</h5>
         <div class="ui inverted link list">
-          <a class="item">Registration</a>
-          <a class="item">Course Calendar</a>
-          <a class="item">Professors</a>
+          <a class="item">Anang Wibowo</a>
+          <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
+          <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
+          <a class="item">Email: anangwibowo918@gmail.com</a>
         </div>
       </div>
-      <div class="column">
-        <h5 class="ui inverted header">Library</h5>
-        <div class="ui inverted link list">
-          <a class="item">A-Z</a>
-          <a class="item">Most Popular</a>
-          <a class="item">Recently Changed</a>
-        </div>
-      </div>
-      <div class="column">
+      <div class="column" style="text-align: left;">
         <h5 class="ui inverted header">Community</h5>
         <div class="ui inverted link list">
           <a class="item">BBS</a>
@@ -406,21 +418,24 @@
           <a class="item">Privacy Policy</a>
         </div>
       </div>
-
-      <div class="column">
-        <h5 class="ui inverted header">Designed By</h5>
-        <addr>
-          <a class="item" href="http://scripteden.com"><img src="{{asset('img/scripteden-logo-g.png')" alt="Logo" style="height:20px" /></a>  <br/>
-          <a href="http://scripteden.com/downloads/bootstrap/">Bootstrap Templates</a>           <br/>
-          <a href="http://scripteden.com/downloads/semantic-ui/">Semantic UI Templates</a>
-        </addr>
-
-
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">Community</h5>
+        <div class="ui inverted link list">
+          <a class="item">BBS</a>
+          <a class="item">Careers</a>
+          <a class="item">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">Community</h5>
+        <div class="ui inverted link list">
+          <a class="item">BBS</a>
+          <a class="item">Careers</a>
+          <a class="item">Privacy Policy</a>
+        </div>
       </div>
     </div>
-
-
-
+    <h5 class="ui inverted header">&copy; {{date('Y')}} <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</h5>
   </div>
 </div>
 </body>
