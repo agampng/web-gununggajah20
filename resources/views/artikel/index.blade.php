@@ -5,7 +5,7 @@
   {{-- background: #FFCB00; --}}
 <div class="row row-header masthead" style="padding: 1rem 9%">
     <div class="ui secondary pointing menu">
-        <a class="logo item">
+        <a class="logo item" href="{{ url('/') }}">
             <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
         </a>
         <div class="right menu">    
@@ -18,9 +18,16 @@
               <a href="{{ url('/') }}" class="item">
                 <i class="flaticon-mail"></i> Paket Wisata
               </a>
-              <a href="{{ url('/') }}" class="item">
-                <i class="flaticon-heart"></i> Bank Sampah
-              </a>
+              <div class="ui pointing dropdown link item">
+                <span class="text" style="color: #ffffff;">Profil Desa</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                      <div class="item">Informasi Geografis</div>
+                      <div class="item">Visi Misi</div>
+                      <div class="item">Struktur Perangkat Desa</div>
+                      <div class="item">Bank Sampah</div>
+                </div>
+              </div>
           <a class="ui item" href="{{ url('/auth/login') }}">
             Login
           </a>
@@ -135,7 +142,7 @@
             </div>
         </div>
         </div>
-        <h5 class="ui inverted header">&copy; {{date('Y')}} <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</h5>
+        <small>&copy; 2020 <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</small>
     </div>
     </div>
 
@@ -145,13 +152,13 @@
 @push('style')
 <style>
     .masthead {
-        background: rgb(24,42,115);
-        background: -moz-linear-gradient(-45deg,  rgba(24,42,115,1) 0%, rgba(33,138,174,1) 69%, rgba(32,167,172,1) 89%);
-        background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(24,42,115,1)), color-stop(69%,rgba(33,138,174,1)), color-stop(89%,rgba(32,167,172,1)));
-        background: -webkit-linear-gradient(-45deg,  rgba(24,42,115,1) 0%,rgba(33,138,174,1) 69%,rgba(32,167,172,1) 89%);
-        background: -o-linear-gradient(-45deg,  rgba(24,42,115,1) 0%,rgba(33,138,174,1) 69%,rgba(32,167,172,1) 89%);
-        background: -ms-linear-gradient(-45deg,  rgba(24,42,115,1) 0%,rgba(33,138,174,1) 69%,rgba(32,167,172,1) 89%);
-        background: linear-gradient(135deg,  rgba(24,42,115,1) 0%,rgba(33,138,174,1) 69%,rgba(32,167,172,1) 89%);
+        background: #5e851b;
+        background: -moz-linear-gradient(-45deg,  #5e851b 0%, #8ec926 69%, #9bd13b 89%);
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#5e851b), color-stop(69%,#8ec926), color-stop(89%,#9bd13b));
+        background: -webkit-linear-gradient(-45deg,  #5e851b 0%,#8ec926 69%,#9bd13b 89%);
+        background: -o-linear-gradient(-45deg,  #5e851b 0%,#8ec926 69%,#9bd13b 89%);
+        background: -ms-linear-gradient(-45deg,  #5e851b 0%,#8ec926 69%,#9bd13b 89%);
+        background: linear-gradient(135deg,  #5e851b 0%,#8ec926 69%,#9bd13b 89%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#182a73', endColorstr='#20a7ac',GradientType=1 );
         border-radius: 0;
         margin: 0em;
