@@ -36,7 +36,7 @@ Route::group(
     function (\Illuminate\Routing\Router $router) {
         $router->get('setting/background', 'SettingController@index')->name('setting.background');
         // $router->get('master/create', 'MasterController@create')->name('master.create');
-        $router->post('master', 'SettingController@bgStore')->name('setting.background.store');
+        $router->post('setting/background', 'SettingController@bgStore')->name('setting.background.store');
         // $router->get('master/{master}', 'MasterController@show')->name('master.show');
         // $router->get('master/{master}/edit', 'MasterController@edit')->name('master.edit');
         // $router->put('master/{master}', 'MasterController@update')->name('master.update');
