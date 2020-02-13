@@ -22,3 +22,7 @@ Route::get('/artikel/{slug}', 'HomeArtikelController@show')->name('artikel.home.
 Route::get('contact-form', 'ContactFormController@create')->name('contact-form.create');
 Route::post('contact-form', 'ContactFormController@store')->name('contact-form.store');
 
+//paket wisata
+Route::get('paket-wisata/', 'PaketWisataController@index')->name('paket-wisata.home.index');
+Route::get('paket-wisata/{slug}', 'PaketWisataController@show')->name('paket-wisata.home.show');
+
