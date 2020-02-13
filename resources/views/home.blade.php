@@ -163,7 +163,9 @@
         @endforeach
       </div>
       <div class="ui divider hidden"></div>
-      <a href="{{ url('/artikel') }}" style="float: right">Lihat selengkapnya</a>
+      <button class="ui secondary button" style="margin-top: 2rem;" onclick="window.location.href='/artikel'">
+        Selengkapnya
+      </button>
     </div>
   </div>
 </div>
