@@ -124,13 +124,12 @@
           <div class="hidden content">Info Lebih Lanjut</div>
         </a>
         <div class="ui centerted image">
-          <div class="one-time" style="height: 40rem">
-              <img style="object-fit: cover" src="{{asset('img/banner.png')}}" />
-              <img src="{{asset('img/totoro-horizontal.jpg')}}" />
-              <img src="{{asset('img/liveforms.png')}}" />
-              <img src="{{asset('img/klaten-logo.png')}}" />
+          <div class="one-time" style="height: 35rem">
+            @foreach ($image as $img)
+              <img style="object-fit: cover" src="{{asset('uploadedImage/'.$img->value)}}" />
+            @endforeach
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>

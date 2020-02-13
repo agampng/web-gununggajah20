@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\PageView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Modules\Articles\Models\Article;
 use Modules\Master\Models\Master;
 use Modules\Wisata\Models\Wisata;
@@ -27,9 +28,10 @@ class HomeController extends Controller
     {
         $artikel = Article::latest()->limit(3)->where('status', 'Aktif')->get();
         $wisata = Wisata::latest()->limit(3)->where('status', 'Aktif')->get();
+        $image = DB::table('settings')->where('key', 'like', 'gambar%')->get();
 
         VisitLog::save();
-        return view('home', compact(['artikel','wisata']));
+        return view('home', compact(['artikel','wisata','image']));
 
     }
 

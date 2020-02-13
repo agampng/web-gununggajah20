@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Sarfraznawaz2005\VisitLog\VisitLogServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Akaunting\Setting\Provider::class,
 
         /*
          * Package Service Providers...
@@ -236,6 +237,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'VisitLog' => Sarfraznawaz2005\VisitLog\Facades\VisitLog::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'Setting' => Akaunting\Setting\Facade::class,
 
     ],
 
