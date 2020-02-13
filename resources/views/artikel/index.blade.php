@@ -20,7 +20,7 @@
                 <i class="flaticon-mail"></i> Paket Wisata
               </a>
               <div class="ui pointing dropdown link item">
-                <span class="text">Profil</span>
+                <span class="text">Profil Desa</span>
                 <i class="dropdown icon"></i>
                 <div class="menu">
                     <div class="item">Profil Desa</div>
