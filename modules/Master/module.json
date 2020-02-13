@@ -1,0 +1,14 @@
+{
+    "name": "",
+    "alias": "",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Master\\Providers\\ServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

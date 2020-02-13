@@ -40,8 +40,12 @@ class MenuServiceProvider extends ServiceProvider
              ->data('icon', 'file alternate outline')
             ->active('admin/article/*');
 
-        $menu->add('Paket Wisata', 'admin/wisatum')
+        $menu->add('Master Data', 'admin/master')
             ->data('icon', 'archive')
+            ->active('admin/master/*');
+
+        $menu->add('Paket Wisata', 'admin/wisatum')
+            ->data('icon', 'coffee icon')
             ->active('admin/wisatum/*');
             
         $menu->add('Kritik / Saran', 'admin/pesan')
