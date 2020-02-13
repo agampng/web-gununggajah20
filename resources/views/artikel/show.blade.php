@@ -4,6 +4,8 @@
 @section('body')
 
 <div class="row row-header masthead" style="padding: 1rem 9%">
+
+    {{-- navbar --}}
     <div class="ui secondary pointing menu">
         <a class="logo item" href="{{ url('/') }}">
             <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
@@ -19,13 +21,14 @@
                 <i class="flaticon-mail"></i> Paket Wisata
               </a>
               <div class="ui pointing dropdown link item">
-                <span class="text">Profil Desa</span>
+                <span class="text">Profil</span>
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                      <div class="item">Informasi Geografis</div>
-                      <div class="item">Visi Misi</div>
-                      <div class="item">Struktur Perangkat Desa</div>
-                      <div class="item">Bank Sampah</div>
+                    <div class="item">Profil Desa</div>
+                  <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
+                  <div class="item">Visi Misi</div>
+                  <div class="item">Struktur Perangkat Desa</div>
+                  <div class="item">Bank Sampah</div>
                 </div>
               </div>
           <a class="ui item" href="{{ url('/auth/login') }}">
@@ -33,6 +36,8 @@
           </a>
         </div>
       </div>
+      {{-- end navbar --}}
+
       <div class="ui divider hidden"></div>
       <h1 class="ui header center aligned" style="color: white;">Berita & Artikel</h1>
       <div style="height: 5vh"></div>

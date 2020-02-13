@@ -81,6 +81,7 @@
 <div class="ui inverted masthead centered segment">
   <div class="ui page grid">
     <div class="column">
+      {{-- navbar --}}
       <div class="ui secondary pointing menu">
         <a class="logo item" href="{{ url('/') }}">
           <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
@@ -96,9 +97,10 @@
             Paket Wisata
           </a>
           <div class="ui pointing dropdown link item">
-            <span class="text" style="color: #ffffff;">Profil Desa</span>
+            <span class="text" style="color: #ffffff;">Profil</span>
             <i class="dropdown icon"></i>
             <div class="menu">
+              <div class="item">Profil Desa</div>
               <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
               <div class="item">Visi Misi</div>
               <div class="item">Struktur Perangkat Desa</div>
@@ -110,6 +112,7 @@
         </div>
         </div>
       </div>
+      {{-- end navbar --}}
 
       <div class="ui hidden transition information">
         <h1 class="ui inverted centered header">

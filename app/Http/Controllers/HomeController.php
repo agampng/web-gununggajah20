@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PageView;
 use Illuminate\Http\Request;
 use Modules\Articles\Models\Article;
+use Modules\Master\Models\Master;
 use Modules\Wisata\Models\Wisata;
 use Sarfraznawaz2005\VisitLog\Facades\VisitLog;
 
@@ -29,6 +31,12 @@ class HomeController extends Controller
         VisitLog::save();
         return view('home', compact(['artikel','wisata']));
 
+    }
+
+    public function infoGeografis()
+    {
+        $content = Master::where('page', PageView::INFORMASI_GEOGRAFIS)->latest()->first();
+        return view('geografis', compact('content'));
     }
 
 

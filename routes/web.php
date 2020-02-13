@@ -13,6 +13,7 @@
 
 Route::redirect('/login', 'auth/login');
 Route::get('/', 'HomeController@index')->name('home.index')->middleware('guest');
+Route::get('/profil/informasi-geografis', 'HomeController@infoGeografis')->name('infoGeografis.index')->middleware('guest');
 Route::get('admin', ['uses' => 'DashboardController', 'as' => 'admin.dashboard'])->middleware('auth');
 
 //artikel guest
