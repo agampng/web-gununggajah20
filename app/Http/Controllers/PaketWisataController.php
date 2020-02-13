@@ -15,10 +15,10 @@ class PaketWisataController extends Controller
     }
 
     public function show($slug){
-        $paketWisata = Wisata::where('slug', $slug)->firstOrFail();
+        $post = Wisata::where('slug', $slug)->firstOrFail();
 
-        $articles = Wisata::where('status', 'Aktif')->whereNotIn('slug', [$slug])->latest()
+        $paketWisata = Wisata::where('status', 'Aktif')->whereNotIn('slug', [$slug])->latest()
             ->take(5)->get();
-        return view('paketwisata.show')->with('post', $paketWisata)->with('paketWisata', $paketWisata);
+        return view('paketwisata.show')->with('post', $post)->with('paketWisata', $paketWisata);
     }
 }

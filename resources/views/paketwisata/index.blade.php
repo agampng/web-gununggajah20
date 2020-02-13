@@ -1,5 +1,5 @@
 @extends('ui::layouts.base')
-@section('site.title', 'Artikel'.' ')
+@section('site.title', 'Paket Wisata')
 
 @section('body')
   {{-- background: #FFCB00; --}}
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="fourteen wide column">
-            <div class="ui three column aligned stackable divided grid">
+            <div class="ui three column aligned stackable grid">
               @foreach ($paketWisata as $w)
                 <div class="column">
                   <div class="ui card">
@@ -65,10 +65,9 @@
                         Deskripsi: <br>{!! substr($w->content,0,80) !!}..
                       </div>
                     </div>
-                    <div class="ui green bottom attached button" onclick="window.location.href='/paket-wisata/'">
-                      <i class="flaticon-play icon"></i>
-                      Info  
-                    </div>
+                    <a class="ui green bottom attached button" href="{{ route('paket-wisata.home.show', ['slug' => $w->slug]) }}">
+                        Info
+                    </a>
                   </div>
       
                 </div>

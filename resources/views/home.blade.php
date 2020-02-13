@@ -158,7 +158,7 @@
             <div style="text-align: left">{!! substr($a->content,0,80) !!}..</div>
             <a class="ui button green" href="{{ route('artikel.home.show', ['slug' => $a->slug]) }}">
                 Baca
-              </a>
+            </a>
           </div>
         @endforeach
       </div>
@@ -200,10 +200,9 @@
                   Deskripsi: <br>{!! substr($w->content,0,80) !!}..
                 </div>
               </div>
-              <div class="ui green bottom attached button" onclick="window.location.href='/paket-wisata/'">
-                <i class="flaticon-play icon"></i>
-                Info  
-              </div>
+              <a class="ui green bottom attached button" href="{{ route('paket-wisata.home.show', ['slug' => $w->slug]) }}">
+                Info
+              </a>
             </div>
 
           </div>
