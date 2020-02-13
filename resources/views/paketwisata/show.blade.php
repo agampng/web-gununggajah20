@@ -1,8 +1,8 @@
 @extends('ui::layouts.base')
-@section('site.title', 'Artikel'.' ')
+@section('site.title', 'Paket Wisata | '.$post->title)
 
 @section('body')
-  {{-- background: #FFCB00; --}}
+
 <div class="row row-header masthead" style="padding: 1rem 9%">
     <div class="ui secondary pointing menu">
         <a class="logo item" href="{{ url('/') }}">
@@ -12,7 +12,7 @@
             <a href="{{ url('/') }}" class="item">
                 <i class="flaticon-home"></i> Beranda
               </a>
-              <a href="{{ url('/artikel') }}" class="active item">
+              <a href="{{ url('/artikel') }}" class="item">
                 <i class="flaticon-mail"></i> Artikel
               </a>
               <a href="{{ url('/paket-wisata') }}" class="item">
@@ -34,118 +34,91 @@
         </div>
       </div>
       <div class="ui divider hidden"></div>
-    <h1 class="ui header center aligned" style="color: white;">Berita & Artikel</h1>
-    <div style="height: 5vh"></div>
+      <h1 class="ui header center aligned" style="color: white;">Paket Wisata</h1>
+      <div style="height: 5vh"></div>
 </div>
 
-{{-- <div class=""> --}}
-<div class="ui segment attached row" style="padding: 1rem;">
+
+<div class="row" style="padding: 1rem;">
     <div class="ui grid container stackable" style="padding: 1rem;">
         <div class="sixteen wide column">
             <div class="ui breadcrumb">
                 <a href="{{ route('home.index') }}" class="section">Beranda</a>
                 <div class="divider"> / </div>
-                <div class="active section">Artikel</div>
+                <a href="{{ route('paket-wisata.home.index') }}" class="section">Paket Wisata</a>
+                <div class="divider"> / </div>
+                <div class="active section">{{ $post->title }}</div>
             </div>
         </div>
-        <div class="sixteen wide column">
-            @if ($top !== null)
-            <a href="{{ route('artikel.home.show', ['slug' => $top->slug]) }}">
-                <div class="sixteen wide bottom aligned column" style="padding: 2rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);
-            background-image: url({{ url('uploadedImage/'.$top->gambar) }}); background-size: cover; background-position: center">
-                    <div class="sixteen wide column" style="height: 50vh"></div>
-                    <div class="sixteen wide column image-title">
-                        <h1 class="ui header" style="color: #fff">{{ $top->title }}</h1>
-                        <h2 class="ui sub header" style="color: #fff">
-                            {{ $top->createdBy->name }} | {{ $top->created_at_present }}
-                        </h2>
-                    </div>
+        <div class="eleven wide column">
+            <div class="sixteen wide bottom aligned column image-header" style="padding: 2rem;
+            background-image: url({{ url('uploadedImage/'.$post->file) }});  background-size: cover; background-position: center; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">
+                <div class="sixteen wide column computer-only" style="height: 50vh"></div>
+                <div class="sixteen wide column computer-only image-title">
+                    <h1 class="ui header" style="color: #fff">{{ $post->title }}</h1>
                 </div>
-            </a>
-            @endif
-        </div>
-        <div class="ten wide column">
-            @foreach ($left as $item)
-            <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="sixteen wide column">
-                    <div class="sixteen wide column image-left" style="background-image: url({{ url('uploadedImage/'.$item->gambar) }});
-                    background-size: cover; height: 40vh; background-position: center; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">
-                    </div>
-                    <div class="sixteen wide column" style="padding: 1rem;">
-                        <h1 class="ui center aligned header">{{ $item->title }}</h1>
-                        <h2 class="ui center aligned sub header">
-                            {{ $top->createdBy->name }} | {{ $item->created_at_present }}
-                        </h2>
-                        <div style="padding: 1rem 0;">
-                            {!! mb_substr($item->content, 0, 400).'..' !!}
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div class="ui divider"></div>
-            <div class="ui divider hidden"></div>
-            @endforeach
 
-        </div>
-        <div class="six wide column">
-            <h3>Artikel Lainnya</h3>
-            @foreach ($right as $item)
-            <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="six wide column">
-                    <img class="ui small left floated image" style="object-fit: cover; height: 5rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);" src="{{ url('uploadedImage/'.$item->gambar) }}">
-                    <h5>{{ $item->title}}</h5>
-                    <small>{{ $item->created_at_present }}</small>
-                </div>
-                <div class="ui divider hidden"></div>
-                <div class="ui divider"></div>
-            </a>
-            @endforeach
+            </div>
+
+            <div class="sixteen wide column mobile-only" style="padding: 1rem">
+                <h2 class="ui header" style="color: black">{{ $post->title }}</h1>
+                <h3 class="ui sub header" style="color: black">
+                    {{ $post->created_at->toFormattedDateString() }}
+                </h2>
+            </div>
+            <div class="sixteen wide column article-content" style="padding: 1rem; text-align: justify;">
+                {!! $post->content !!}
+            </div>
+            <div class="ui divider hidden"></div>
+
+            <div class="sixteen wide column">
+                <div class="sharethis-inline-share-buttons"></div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="ui inverted footer vertical segment center">
     <div class="ui stackable center aligned page grid">
-        <div class="four column row">
-
+      <div class="four column row">
+  
         <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">KONTAK KAMI</h5>
-            <div class="ui inverted link list">
+          <h5 class="ui inverted header">KONTAK KAMI</h5>
+          <div class="ui inverted link list">
             <a class="item">Anang Wibowo</a>
             <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
             <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
             <a class="item">Email: anangwibowo918@gmail.com</a>
-            </div>
+          </div>
         </div>
         <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
+          <h5 class="ui inverted header">Community</h5>
+          <div class="ui inverted link list">
             <a class="item">BBS</a>
             <a class="item">Careers</a>
             <a class="item">Privacy Policy</a>
-            </div>
+          </div>
         </div>
         <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
+          <h5 class="ui inverted header">Community</h5>
+          <div class="ui inverted link list">
             <a class="item">BBS</a>
             <a class="item">Careers</a>
             <a class="item">Privacy Policy</a>
-            </div>
+          </div>
         </div>
         <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
+          <h5 class="ui inverted header">Community</h5>
+          <div class="ui inverted link list">
             <a class="item">BBS</a>
             <a class="item">Careers</a>
             <a class="item">Privacy Policy</a>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
         <small>&copy; 2020 <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</small>
     </div>
-    </div>
-
+  </div>
 
 @endsection
 
@@ -219,7 +192,6 @@
         color: inherit;
         text-decoration: none;
     }
-    
     .mobile-only{
         display: none !important;
     }
@@ -237,18 +209,23 @@
         .row-header {
             margin-top: 3em;
         }
-        .sixteen.wide.column.image-left {
-            height: 10em !important;
+        .sixteen.wide.bottom.aligned.column.image-header {
+            height: 25vh !important;
             background-position: center !important;
         }
-        .sixteen.wide.column.image-right {
-            background-position: center !important;
+        .sixteen.wide.column.article-content {
+            padding: 0 !important;
+            padding-bottom: 1rem !important;
         }
     }
 </style>
 @endpush
 
 @push('script')
+<script type='text/javascript'
+src='//platform-api.sharethis.com/js/sharethis.js#property=5ce3b318dc07bd00120823cd&product=inline-share-buttons'
+async='async'>
+</script>
 <script>
     $(document).ready(function () {
         $('.ui.sidebar').sidebar({
@@ -259,5 +236,4 @@
         }).sidebar('attach events', '.mobile_item');
     });
 </script>
-    
 @endpush

@@ -92,7 +92,7 @@
           <a href="{{ url('/artikel') }}" class="item" style="color: #ffffff;">
             Artikel
           </a>
-          <a href="{{ url('/') }}" class="item" style="color: #ffffff;">
+          <a href="{{ url('/paket-wisata') }}" class="item" style="color: #ffffff;">
             Paket Wisata
           </a>
           <div class="ui pointing dropdown link item">
@@ -158,12 +158,14 @@
             <div style="text-align: left">{!! substr($a->content,0,80) !!}..</div>
             <a class="ui button green" href="{{ route('artikel.home.show', ['slug' => $a->slug]) }}">
                 Baca
-              </a>
+            </a>
           </div>
         @endforeach
       </div>
       <div class="ui divider hidden"></div>
-      <a href="{{ url('/artikel') }}" style="float: right">Lihat selengkapnya</a>
+      <button class="ui secondary button" style="margin-top: 2rem;" onclick="window.location.href='/artikel'">
+        Selengkapnya
+      </button>
     </div>
   </div>
 </div>
@@ -185,9 +187,9 @@
       <div class="ui three column aligned stackable divided grid">
         @foreach ($wisata as $w)
           <div class="column">
-            <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+            <div class="ui card">
               <div class="image">
-                <img style="width: 20rem; height: 20rem; object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
+                <img style="object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
               <div class="content" style="height: 10rem">
                 <div class="header">{{ $w->title }}</div>
@@ -198,22 +200,18 @@
                   Deskripsi: <br>{!! substr($w->content,0,80) !!}..
                 </div>
               </div>
-              <div class="ui two bottom attached buttons">
-                <div class="ui button">
-                  <i class="flaticon-plus icon"></i>
-                  Queue
-                </div>
-                <div class="ui pink button">
-                  <i class="flaticon-play icon"></i>
-                  Info
-                </div>
-              </div>
+              <a class="ui green bottom attached button" href="{{ route('paket-wisata.home.show', ['slug' => $w->slug]) }}">
+                Info
+              </a>
             </div>
 
           </div>
         @endforeach
 
       </div>
+      <button class="ui secondary button" style="margin-top: 2rem;" onclick="window.location.href='/paket-wisata/'">
+        Selengkapnya
+      </button>
     </div>
   </div>
 </div>
