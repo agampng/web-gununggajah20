@@ -15,19 +15,6 @@
         </div>
     </div>
 
-{{--    {!! form()->post(route('pesan.store'))->multipart() !!}--}}
-{{--	{!! form()->text('title')->label('Judul') !!}--}}
-{{--    {!! SemanticForm::imageEditor('gambar', 'Gambar Judul', ['required' => true]) !!}--}}
-{{--    <label class="required"><b>Konten</b></label>--}}
-{{--    {!! form()->redactor('content') !!}--}}
-{{--    <div class="ui divider hidden"></div>--}}
-{{--    {!! SemanticForm::select('status', [0 => 'Tidak Aktif', 1 => 'Aktif'])->label('Status')->required() !!}--}}
-{{--    {!! form()->action([--}}
-{{--        form()->submit('Save'),--}}
-{{--        form()->link('Cancel', route('pesan.index'))--}}
-{{--    ]) !!}--}}
-{{--    {!! form()->close() !!}--}}
-
     <div class="ui segment attached">
         {!! SemanticForm::open()->post()->action(route('pesan.store'))->multipart() !!}
         {{-- {!! SemanticForm::text('title')->label('Judul')->required() !!}

@@ -14,9 +14,9 @@ class Update extends Store
     public function rules()
     {
         return [
-            'title' => ['required'],
-            'content' => ['required'],
-            'status' => ['required'],
+            'reply' => ['required'],
+            // 'content' => ['required'],
+            // 'status' => ['required'],
         ];
     }
 

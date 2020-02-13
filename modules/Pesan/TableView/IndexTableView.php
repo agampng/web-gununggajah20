@@ -17,7 +17,7 @@ class IndexTableView extends TableView
             Text::make('email')->sortable(),
             Text::make('pesan')->sortable(),
             Text::make('created_at_present', 'Tanggal Dibuat')->sortable(),
-            RestfulButton::make('pesan')->only(['edit', 'delete']),
+            RestfulButton::make('pesan')->only(['view', 'delete']),
         ];
     }
 }

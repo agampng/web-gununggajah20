@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@yield('site.title', "Welcome HomeController") | {{ config('app.name') }}</title>
+    <title>@yield('site.title', "Welcome") | {{ config('app.name') }}</title>
 
     <meta charset="UTF-8"/>
     <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>

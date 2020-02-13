@@ -12,10 +12,10 @@
             <a href="{{ url('/') }}" class="item">
                 <i class="flaticon-home"></i> Beranda
               </a>
-              <a href="{{ url('/artikel') }}" class="active item">
+              <a href="{{ url('/artikel') }}" class="item">
                 <i class="flaticon-mail"></i> Artikel
               </a>
-              <a href="{{ url('/paket-wisata') }}" class="item">
+              <a href="{{ url('/paket-wisata') }}" class="active item">
                 <i class="flaticon-mail"></i> Paket Wisata
               </a>
               <div class="ui pointing dropdown link item">
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="ui divider hidden"></div>
-    <h1 class="ui header center aligned" style="color: white;">Berita & Artikel</h1>
+    <h1 class="ui header center aligned" style="color: white;">Paket Wisata</h1>
     <div style="height: 5vh"></div>
 </div>
 
@@ -45,61 +45,36 @@
             <div class="ui breadcrumb">
                 <a href="{{ route('home.index') }}" class="section">Beranda</a>
                 <div class="divider"> / </div>
-                <div class="active section">Artikel</div>
+                <div class="active section">Paket Wisata</div>
             </div>
         </div>
-        <div class="sixteen wide column">
-            @if ($top !== null)
-            <a href="{{ route('artikel.home.show', ['slug' => $top->slug]) }}">
-                <div class="sixteen wide bottom aligned column" style="padding: 2rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);
-            background-image: url({{ url('uploadedImage/'.$top->gambar) }}); background-size: cover; background-position: center">
-                    <div class="sixteen wide column" style="height: 50vh"></div>
-                    <div class="sixteen wide column image-title">
-                        <h1 class="ui header" style="color: #fff">{{ $top->title }}</h1>
-                        <h2 class="ui sub header" style="color: #fff">
-                            {{ $top->createdBy->name }} | {{ $top->created_at_present }}
-                        </h2>
+        <div class="fourteen wide column">
+            <div class="ui three column aligned stackable divided grid">
+              @foreach ($paketWisata as $w)
+                <div class="column">
+                  <div class="ui card">
+                    <div class="image">
+                      <img style="object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
                     </div>
-                </div>
-            </a>
-            @endif
-        </div>
-        <div class="ten wide column">
-            @foreach ($left as $item)
-            <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="sixteen wide column">
-                    <div class="sixteen wide column image-left" style="background-image: url({{ url('uploadedImage/'.$item->gambar) }});
-                    background-size: cover; height: 40vh; background-position: center; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">
+                    <div class="content" style="height: 10rem">
+                      <div class="header">{{ $w->title }}</div>
+                      <div class="description">
+                        Paket Wisata: {{ $w->kategori_wisata }}
+                      </div>
+                      <div class="description" id="desc-wisata">
+                        Deskripsi: <br>{!! substr($w->content,0,80) !!}..
+                      </div>
                     </div>
-                    <div class="sixteen wide column" style="padding: 1rem;">
-                        <h1 class="ui center aligned header">{{ $item->title }}</h1>
-                        <h2 class="ui center aligned sub header">
-                            {{ $top->createdBy->name }} | {{ $item->created_at_present }}
-                        </h2>
-                        <div style="padding: 1rem 0;">
-                            {!! mb_substr($item->content, 0, 400).'..' !!}
-                        </div>
+                    <div class="ui green bottom attached button" onclick="window.location.href='/paket-wisata/'">
+                      <i class="flaticon-play icon"></i>
+                      Info  
                     </div>
+                  </div>
+      
                 </div>
-            </a>
-            <div class="ui divider"></div>
-            <div class="ui divider hidden"></div>
-            @endforeach
-
-        </div>
-        <div class="six wide column">
-            <h3>Artikel Lainnya</h3>
-            @foreach ($right as $item)
-            <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="six wide column">
-                    <img class="ui small left floated image" style="object-fit: cover; height: 5rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);" src="{{ url('uploadedImage/'.$item->gambar) }}">
-                    <h5>{{ $item->title}}</h5>
-                    <small>{{ $item->created_at_present }}</small>
-                </div>
-                <div class="ui divider hidden"></div>
-                <div class="ui divider"></div>
-            </a>
-            @endforeach
+              @endforeach
+      
+            </div>
         </div>
     </div>
 </div>

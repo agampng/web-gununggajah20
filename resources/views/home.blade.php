@@ -56,6 +56,25 @@
     #desc-wisata > p{
       color:#8F8F8F
     }
+    @media only screen and (max-width:620px){
+        .computer-only {
+            display: none !important;
+        }
+        .mobile-only {
+            display: inline !important;
+        }
+        .row-header {
+            margin-top: 3em;
+        }
+        .sixteen.wide.bottom.aligned.column.image-header {
+            height: 25vh !important;
+            background-position: center !important;
+        }
+        .sixteen.wide.column.article-content {
+            padding: 0 !important;
+            padding-bottom: 1rem !important;
+        }
+    }
   </style>
 </head>
 <body id="home">
@@ -63,32 +82,32 @@
   <div class="ui page grid">
     <div class="column">
       <div class="ui secondary pointing menu">
-        <a class="logo item">
-          <img src="{{ asset(config('laravolt.ui.brand_image')) }}" class="ui image centered" alt="" style="width:  60px; margin-bottom: 10px">
-          Desa Gununggajah
-        </a>
-        <a href="{{ url('/') }}" class="active item" style="color: white;">
-          Beranda
-        </a>
-        <a href="{{ url('/artikel') }}" class="item" style="color: white;">
-          Artikel
-        </a>
-        <a href="{{ url('/') }}" class="item" style="color: white;">
-          Paket Wisata
-        </a>
-        <a href="{{ url('/') }}" class="item" style="color: white;">
-          Bank Sampah
+        <a class="logo item" href="{{ url('/') }}">
+          <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
         </a>
         <div class="right menu">
-          <div class="item">
-            <div class="ui icon input">
-              <input placeholder="Search..." type="text">
-              <i class="flaticon-position link icon"></i>
+          <a href="{{ url('/') }}" class="active item" style="color: #ffffff;">
+            Beranda
+          </a>
+          <a href="{{ url('/artikel') }}" class="item" style="color: #ffffff;">
+            Artikel
+          </a>
+          <a href="{{ url('/paket-wisata') }}" class="item" style="color: #ffffff;">
+            Paket Wisata
+          </a>
+          <div class="ui pointing dropdown link item">
+            <span class="text" style="color: #ffffff;">Profil Desa</span>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
+              <div class="item">Visi Misi</div>
+              <div class="item">Struktur Perangkat Desa</div>
+              <div class="item">Bank Sampah</div>
             </div>
           </div>
-          <a class="ui item" href="{{ url('/auth/login') }}">
-            Login
-          </a>
+          <div class="item">
+            <a href="{{ url('/auth/login') }}" class="ui primary button" style="border-color: #E7EEF4; border-width: 0.15rem; border-style: solid; border-radius: 50px; background-color: #7FB323; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">LOGIN</a>
+        </div>
         </div>
       </div>
 
@@ -119,7 +138,7 @@
       <div class="eight wide centered column">
         <div class="ui divider hidden"></div>
         <h1 class="center aligned ui header">
-          Artikel
+          Berita & Artikel
         </h1>
         <div class="ui horizontal divider"><i class="balck flaticon-camera icon"></i></div>
         <p class="ui centered lead">Informasi di Desa Gununggajah</p>
@@ -137,12 +156,14 @@
               {{$a->title}}
             </div>
             <div style="text-align: left">{!! substr($a->content,0,80) !!}..</div>
-            <a class="ui button green" href="#">
+            <a class="ui button green" href="{{ route('artikel.home.show', ['slug' => $a->slug]) }}">
                 Baca
               </a>
           </div>
         @endforeach
       </div>
+      <div class="ui divider hidden"></div>
+      <a href="{{ url('/artikel') }}" style="float: right">Lihat selengkapnya</a>
     </div>
   </div>
 </div>
@@ -164,9 +185,9 @@
       <div class="ui three column aligned stackable divided grid">
         @foreach ($wisata as $w)
           <div class="column">
-            <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+            <div class="ui card">
               <div class="image">
-                <img style="width: 20rem; height: 20rem; object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
+                <img style="object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
               <div class="content" style="height: 10rem">
                 <div class="header">{{ $w->title }}</div>
@@ -177,15 +198,9 @@
                   Deskripsi: <br>{!! substr($w->content,0,80) !!}..
                 </div>
               </div>
-              <div class="ui two bottom attached buttons">
-                <div class="ui button">
-                  <i class="flaticon-plus icon"></i>
-                  Queue
-                </div>
-                <div class="ui pink button">
-                  <i class="flaticon-play icon"></i>
-                  Info
-                </div>
+              <div class="ui green bottom attached button" onclick="window.location.href='/paket-wisata/'">
+                <i class="flaticon-play icon"></i>
+                Info  
               </div>
             </div>
 
@@ -193,6 +208,9 @@
         @endforeach
 
       </div>
+      <button class="ui secondary button" style="margin-top: 2rem;" onclick="window.location.href='/paket-wisata/'">
+        Selengkapnya
+      </button>
     </div>
   </div>
 </div>
@@ -384,23 +402,16 @@
   <div class="ui stackable center aligned page grid">
     <div class="four column row">
 
-      <div class="column">
-        <h5 class="ui inverted header">Courses</h5>
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">KONTAK KAMI</h5>
         <div class="ui inverted link list">
-          <a class="item">Registration</a>
-          <a class="item">Course Calendar</a>
-          <a class="item">Professors</a>
+          <a class="item">Anang Wibowo</a>
+          <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
+          <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
+          <a class="item">Email: anangwibowo918@gmail.com</a>
         </div>
       </div>
-      <div class="column">
-        <h5 class="ui inverted header">Library</h5>
-        <div class="ui inverted link list">
-          <a class="item">A-Z</a>
-          <a class="item">Most Popular</a>
-          <a class="item">Recently Changed</a>
-        </div>
-      </div>
-      <div class="column">
+      <div class="column" style="text-align: left;">
         <h5 class="ui inverted header">Community</h5>
         <div class="ui inverted link list">
           <a class="item">BBS</a>
@@ -408,21 +419,24 @@
           <a class="item">Privacy Policy</a>
         </div>
       </div>
-
-      <div class="column">
-        <h5 class="ui inverted header">Designed By</h5>
-        <addr>
-          <a class="item" href="http://scripteden.com"><img src="{{asset('img/scripteden-logo-g.png')" alt="Logo" style="height:20px" /></a>  <br/>
-          <a href="http://scripteden.com/downloads/bootstrap/">Bootstrap Templates</a>           <br/>
-          <a href="http://scripteden.com/downloads/semantic-ui/">Semantic UI Templates</a>
-        </addr>
-
-
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">Community</h5>
+        <div class="ui inverted link list">
+          <a class="item">BBS</a>
+          <a class="item">Careers</a>
+          <a class="item">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="column" style="text-align: left;">
+        <h5 class="ui inverted header">Community</h5>
+        <div class="ui inverted link list">
+          <a class="item">BBS</a>
+          <a class="item">Careers</a>
+          <a class="item">Privacy Policy</a>
+        </div>
       </div>
     </div>
-
-
-
+    <h5 class="ui inverted header">&copy; 2020 <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</h5>
   </div>
 </div>
 </body>

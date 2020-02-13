@@ -12,6 +12,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        \App\Events\ReplySubmitted::class => [
+            \App\Listeners\SendReplyNotification::class,
+        ],
     ];
 
     /**
