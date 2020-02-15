@@ -22,7 +22,7 @@
                 <div class="active section">Artikel</div>
             </div>
         </div>
-        <div class="sixteen wide column">
+        <div class="sixteen wide column" style="margin-bottom: 2rem; border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey;">
             @if ($top !== null)
             <a href="{{ route('artikel.home.show', ['slug' => $top->slug]) }}">
                 <div class="sixteen wide bottom aligned column" style="padding: 2rem; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);
@@ -41,7 +41,7 @@
         <div class="ten wide column">
             @foreach ($left as $item)
             <a href="{{ route('artikel.home.show', ['slug' => $item->slug]) }}">
-                <div class="sixteen wide column">
+                <div class="sixteen wide column" style=" border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey;">
                     <div class="sixteen wide column image-left" style="background-image: url({{ url('uploadedImage/'.$item->gambar) }});
                     background-size: cover; height: 40vh; background-position: center; background-color: white; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">
                     </div>

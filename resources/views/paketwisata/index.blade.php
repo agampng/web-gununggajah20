@@ -24,7 +24,7 @@
         <div class="fourteen wide column">
             <div class="ui three column aligned stackable grid">
               @foreach ($paketWisata as $w)
-                <div class="column">
+                <div class="column" style=" border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey;">
                   <div class="ui card">
                     <div class="image">
                       <img style="object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
