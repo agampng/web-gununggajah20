@@ -4,41 +4,12 @@
 @section('body')
   {{-- background: #FFCB00; --}}
 <div class="row row-header masthead" style="padding: 1rem 9%">
-    {{-- navbar --}}
-    <div class="ui secondary pointing menu">
-        <a class="logo item" href="{{ url('/') }}">
-            <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
-        </a>
-        <div class="right menu">    
-            <a href="{{ url('/') }}" class="item">
-                <i class="flaticon-home"></i> Beranda
-              </a>
-              <a href="{{ url('/artikel') }}" class="active item">
-                <i class="flaticon-mail"></i> Artikel
-              </a>
-              <a href="{{ url('/paket-wisata') }}" class="item">
-                <i class="flaticon-mail"></i> Paket Wisata
-              </a>
-              <div class="ui pointing dropdown link item">
-                <span class="text">Profil Desa</span>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item">Profil Desa</div>
-                  <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
-                  <div class="item">Visi Misi</div>
-                  <div class="item">Struktur Perangkat Desa</div>
-                  <div class="item">Bank Sampah</div>
-                </div>
-              </div>
-          <a class="ui item" href="{{ url('/auth/login') }}">
-            Login
-          </a>
-        </div>
-      </div>
-      {{-- end navbar --}}
-      <div class="ui divider hidden"></div>
-    <h1 class="ui header center aligned" style="color: white;">Berita & Artikel</h1>
-    <div style="height: 5vh"></div>
+    @include('home.navbar')
+</div>
+<div class="sixteen wide column" style="margin-top: -1rem; background-image: url({{ url('img/green-1.jpg') }});background-size: cover; background-position: center;">
+    <div class="ui divider hidden"></div>
+    <h1 class="ui header inverted centered" style="font-size: 4rem">Berita & Artikel</h1>
+    <div style="height: 6vh"></div>
 </div>
 
 {{-- <div class=""> --}}
@@ -106,50 +77,7 @@
         </div>
     </div>
 </div>
-
-<div class="ui inverted footer vertical segment center">
-    <div class="ui stackable center aligned page grid">
-        <div class="four column row">
-
-        <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">KONTAK KAMI</h5>
-            <div class="ui inverted link list">
-            <a class="item">Anang Wibowo</a>
-            <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
-            <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
-            <a class="item">Email: anangwibowo918@gmail.com</a>
-            </div>
-        </div>
-        <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
-            <a class="item">BBS</a>
-            <a class="item">Careers</a>
-            <a class="item">Privacy Policy</a>
-            </div>
-        </div>
-        <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
-            <a class="item">BBS</a>
-            <a class="item">Careers</a>
-            <a class="item">Privacy Policy</a>
-            </div>
-        </div>
-        <div class="column" style="text-align: left;">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
-            <a class="item">BBS</a>
-            <a class="item">Careers</a>
-            <a class="item">Privacy Policy</a>
-            </div>
-        </div>
-        </div>
-        <small>&copy; 2020 <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</small>
-    </div>
-    </div>
-
-
+@include('home.footer')
 @endsection
 
 @push('style')

@@ -20,6 +20,7 @@ class SettingController extends Controller
     //     return view('home');
     // }
 
+    // background
     public function index()
     {
         $settings['gambar1'] = setting('gambar1');
@@ -59,5 +60,22 @@ class SettingController extends Controller
         }
 
         return redirect()->route('setting.background')->withSuccess('Gambar berhasil diperbarui');
+    }
+    // footer
+    public function footerIndex()
+    {
+        $footer  = setting('footer');
+
+        return view('admin.setting.footer', compact('footer'));   
+    }
+
+    public function footerStore(Request $request)
+    {
+        $data = $request->except('_token');
+        foreach($data as $key=> $value) {
+            setting([$key => $value])->save();
+
+        }
+        return redirect()->route('setting.footer')->withSuccess('Gambar berhasil diperbarui');
     }
 }

@@ -40,7 +40,11 @@ class MenuServiceProvider extends ServiceProvider
 
         $subMenu->add('Gambar Utama', 'admin/setting/background')
            ->data('icon', 'cog')
-           ->active('admin/setting/*');
+           ->active('admin/setting/background');
+
+        $subMenu->add('Footer', 'admin/setting/footer')
+           ->data('icon', 'cog')
+           ->active('admin/setting/footer');
 
         $menu = $this->app['laravolt.menu']->add('Data');
         $menu->add('Master Data', 'admin/master')

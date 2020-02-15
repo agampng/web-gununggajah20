@@ -8,7 +8,7 @@
 
   <!-- Site Properities -->
   <title>Desa Wisata Gununggajah</title>
-
+  <link rel="shortcut icon" href="{{ asset('img/klaten-logo.png') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/semantic.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/homepage/iconfonts/flaticon.css') }}">
@@ -82,36 +82,7 @@
   <div class="ui page grid">
     <div class="column">
       {{-- navbar --}}
-      <div class="ui secondary pointing menu">
-        <a class="logo item" href="{{ url('/') }}">
-          <img src="{{ asset('img/logo-web.png') }}" class="ui image centered" alt="" style="height: 70px; margin-bottom: 10px">
-        </a>
-        <div class="right menu">
-          <a href="{{ url('/') }}" class="active item" style="color: #ffffff;">
-            Beranda
-          </a>
-          <a href="{{ url('/artikel') }}" class="item" style="color: #ffffff;">
-            Artikel
-          </a>
-          <a href="{{ url('/paket-wisata') }}" class="item" style="color: #ffffff;">
-            Paket Wisata
-          </a>
-          <div class="ui pointing dropdown link item">
-            <span class="text" style="color: #ffffff;">Profil Desa</span>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item">Profil Desa</div>
-              <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
-              <div class="item">Visi Misi</div>
-              <div class="item">Struktur Perangkat Desa</div>
-              <div class="item">Bank Sampah</div>
-            </div>
-          </div>
-          <div class="item">
-            <a href="{{ url('/auth/login') }}" class="ui primary button" style="border-color: #E7EEF4; border-width: 0.15rem; border-style: solid; border-radius: 50px; background-color: #7FB323; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">LOGIN</a>
-        </div>
-        </div>
-      </div>
+      @include('home.navbar')
       {{-- end navbar --}}
 
       <div class="ui hidden transition information">
@@ -401,47 +372,7 @@
   </div>
 </div>
 
-<div class="ui inverted footer vertical segment center">
-  <div class="ui stackable center aligned page grid">
-    <div class="four column row">
-
-      <div class="column" style="text-align: left;">
-        <h5 class="ui inverted header">KONTAK KAMI</h5>
-        <div class="ui inverted link list">
-          <a class="item">Anang Wibowo</a>
-          <a class="item">Padasan RT. 01, RW. 04, Gununggajah, Bayat, Klaten</a>
-          <a class="item">Telepon / Whatsapp: 0858-7873-3140</a>
-          <a class="item">Email: anangwibowo918@gmail.com</a>
-        </div>
-      </div>
-      <div class="column" style="text-align: left;">
-        <h5 class="ui inverted header">Community</h5>
-        <div class="ui inverted link list">
-          <a class="item">BBS</a>
-          <a class="item">Careers</a>
-          <a class="item">Privacy Policy</a>
-        </div>
-      </div>
-      <div class="column" style="text-align: left;">
-        <h5 class="ui inverted header">Community</h5>
-        <div class="ui inverted link list">
-          <a class="item">BBS</a>
-          <a class="item">Careers</a>
-          <a class="item">Privacy Policy</a>
-        </div>
-      </div>
-      <div class="column" style="text-align: left;">
-        <h5 class="ui inverted header">Community</h5>
-        <div class="ui inverted link list">
-          <a class="item">BBS</a>
-          <a class="item">Careers</a>
-          <a class="item">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-    <h5 class="ui inverted header">&copy; 2020 <a href="{{ url('/') }}">BUKIT CINTA WATU PRAHU</a> ALL RIGHTS RESERVED.</h5>
-  </div>
-</div>
+@include('home.footer')
 </body>
 
 </html>
