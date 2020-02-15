@@ -29,12 +29,15 @@ class MasterController extends Controller
     public function store(Store $request)
     {
 //        Master::create($request->all());
-
-        $gambar = $request->file('gambar');
-        $tmpNamaGambar = str_slug($gambar->getClientOriginalName(), '-');
-        $namaGambar = time()."_".$tmpNamaGambar;
-        $dirGambar = 'uploadedImage';
-        $gambar->move($dirGambar,$namaGambar);
+        if ($request->file('image')) {
+            $gambar = $request->file('image');
+            $tmpNamaGambar = str_slug($gambar->getClientOriginalName(), '-');
+            $namaGambar = time()."_".$tmpNamaGambar;
+            $dirGambar = 'uploadedImage';
+            $gambar->move($dirGambar,$namaGambar);
+        } else {
+            $namaGambar = null;
+        }
 
         $slug = str_slug($request->title, '-');
 
@@ -64,8 +67,8 @@ class MasterController extends Controller
 
     public function update(Update $request,Master $master)
     {
-        if ($request->file('gambar')) {
-            $gambar = $request->file('gambar');
+        if ($request->file('image')) {
+            $gambar = $request->file('image');
             $namaGambar = time()."_".$gambar->getClientOriginalName();
             $dirGambar = 'uploadedImage';
             $gambar->move($dirGambar,$namaGambar);
