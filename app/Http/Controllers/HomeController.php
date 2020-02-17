@@ -41,6 +41,18 @@ class HomeController extends Controller
         return view('geografis', compact('content'));
     }
 
+    public function infoVisiMisi()
+    {
+        $content = Master::where('page', PageView::VISI_DAN_MISI)->latest()->first();
+        return view('visimisi', compact('content'));
+    }
+
+    public function infoStrukturPerangkatDesa()
+    {
+        $content = Master::where('page', PageView::STRUKTUR_PERANGKAT_DESA)->latest()->first();
+        return view('strukturdesa', compact('content'));
+    }
+
     public function infoBankSampah()
     {
         $articles = Article::where('status', 'Aktif')->latest()

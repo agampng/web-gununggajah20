@@ -18,8 +18,8 @@
         <div class="menu">
           <div class="item">Profil Desa</div>
           <a class="item" href="{{ url('/profil/informasi-geografis') }}">Informasi Geografis</a>
-          <div class="item">Visi Misi</div>
-          <div class="item">Struktur Perangkat Desa</div>
+          <a class="item" href="{{ url('/profil/visi-misi') }}">Visi & Misi</a>
+          <a class="item" href="{{ url('/profil/struktur-desa') }}">Struktur Perangkat Desa</a>
           <a class="item" href="{{ url('/profil/bank-sampah') }}">Bank Sampah</a>
         </div>
       </div>

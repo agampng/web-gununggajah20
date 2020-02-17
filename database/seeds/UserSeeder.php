@@ -11,6 +11,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(config('auth.providers.users.model'))->times(50)->create();
+        factory(config('auth.providers.users.model'))->times(2)->create();
     }
 }
