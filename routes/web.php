@@ -16,7 +16,6 @@ Route::get('/', 'HomeController@index')->name('home.index')->middleware('guest')
 Route::get('/profil/informasi-geografis', 'HomeController@infoGeografis')->name('infoGeografis.index')->middleware('guest');
 Route::get('/profil/bank-sampah', 'HomeController@infoBankSampah')->name('infoBankSampah.index')->middleware('guest');
 Route::get('/profil/visi-misi', 'HomeController@infoVisiMisi')->name('infoVisiMisi.index')->middleware('guest');
-Route::get('/profil/struktur-desa', 'HomeController@infoStrukturPerangkatDesa')->name('infoStrukturDesa.index')->middleware('guest');
 Route::get('admin', ['uses' => 'DashboardController', 'as' => 'admin.dashboard'])->middleware('auth');
 
 //artikel guest

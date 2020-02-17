@@ -10,7 +10,6 @@ final class PageView extends Enum
 {
     const INFORMASI_GEOGRAFIS = 'INFORMASI_GEOGRAFIS';
     const VISI_DAN_MISI = 'VISI_DAN_MISI';
-    const STRUKTUR_PERANGKAT_DESA = 'STRUKTUR_PERANGKAT_DESA';
     const BANK_SAMPAH = 'BANK_SAMPAH';
 
     
