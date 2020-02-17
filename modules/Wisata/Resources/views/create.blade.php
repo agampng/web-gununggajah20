@@ -25,7 +25,6 @@
         <div class="ui divider hidden"></div>
         {!! SemanticForm::text('nama_penyedia')->label('Nama Penyedia')->required() !!}
         {!! SemanticForm::text('telepon_penyedia')->label('Telepon Penyedia')->required() !!}
-        {!! SemanticForm::text('email_penyedia')->label('Email Penyedia') !!}
         {!! SemanticForm::select('status', ['Tidak Aktif' => 'Tidak Aktif', 'Aktif' => 'Aktif'])->label('Status')->required() !!}
         <div class="ui divider hidden"></div>
         {!! form()->action([

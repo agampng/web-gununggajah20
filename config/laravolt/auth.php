@@ -10,7 +10,7 @@ return [
         'decay_minutes' => 1,
     ],
     'registration' => [
-        'enable'         => true,
+        'enable'         => false,
         'status'         => \App\Enums\UserStatus::ACTIVE,
         'implementation' => \Laravolt\Auth\DefaultUserRegistrar::class,
     ],

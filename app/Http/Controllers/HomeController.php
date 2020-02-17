@@ -41,5 +41,14 @@ class HomeController extends Controller
         return view('geografis', compact('content'));
     }
 
+    public function infoBankSampah()
+    {
+        $articles = Article::where('status', 'Aktif')->latest()
+            ->take(5)->get();
+
+        $content = Master::where('page', PageView::BANK_SAMPAH)->latest()->first();
+        return view('banksampah', compact('content'));
+    }
+
 
 }

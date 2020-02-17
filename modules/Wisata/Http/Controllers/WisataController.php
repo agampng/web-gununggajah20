@@ -45,7 +45,6 @@ class WisataController extends Controller
             'created_by' => auth()->user()->id,
             'nama_penyedia' => $request->nama_penyedia,
             'telepon_penyedia' => $request->telepon_penyedia,
-            'email_penyedia' => $request->email_penyedia,
             'kategori_wisata' => $request->kategori_wisata,
         ]);
 
@@ -82,7 +81,6 @@ class WisataController extends Controller
         $wisata->updated_by = auth()->user()->id;
         $wisata->nama_penyedia = $request->nama_penyedia;
         $wisata->telepon_penyedia = $request->telepon_penyedia;
-        $wisata->email_penyedia = $request->email_penyedia;
         $wisata->kategori_wisata = $request->kategori_wisata;
 
         $wisata->save();

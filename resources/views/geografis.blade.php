@@ -25,23 +25,16 @@
             </div>
         </div>
         <div class="sixteen wide column">
-            <div class="sixteen wide bottom aligned column image-header" style="padding: 2rem; box-shadow: 0 1px 5px 0 rgba(87, 98, 113, 0.5);">            
+            <div class="sixteen wide bottom aligned column image-header" style="padding: 2rem; border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey;">            
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.2422806340765!2d110.66739011419854!3d-7.764111194404302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a47cbc3734b9d%3A0x45f15bded4095f4d!2sBukit%20Cinta%20Watu%20Prahu!5e0!3m2!1sid!2sid!4v1581514996454!5m2!1sid!2sid" width="100%" height="450" frameborder="0" allowfullscreen=""></iframe>
-                {{-- <h1 class="ui header" style="color: #fff">{{ $post->title }}</h1> --}}
-                <h2 class="ui sub header" style="color: #fff">
-                    {{-- {{ $post->createdBy->name }} | {{ $post->created_at_present }} --}}
-                </h2>
             </div>
+        </div>
 
-            </div>
-
-            <div class="sixteen wide column" style="padding: 1rem">
+            <div class="sixteen wide column" style="box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey; padding: 10px; border-left-style: solid; border-left-color: #7BAE23; border-left-width: 5px; padding: 1rem">
                 <h2 class="ui header" style="color: black">{{ $content->title }}</h2>
-                <h3 class="ui sub header" style="color: black">
-                    {{-- {{ $post->created_at->toFormattedDateString() }} --}}
-                </h3>
             </div>
-            <div class="sixteen wide column article-content" style="padding: 1rem;">
+            <div class="ui divider hidden"></div>
+            <div class="sixteen wide column article-content" style="padding: 2rem; border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey;">
                 {{-- {!! $post->content !!} --}}
                 {!! $content->content !!}
             </div>

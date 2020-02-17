@@ -14,6 +14,7 @@
 Route::redirect('/login', 'auth/login');
 Route::get('/', 'HomeController@index')->name('home.index')->middleware('guest');
 Route::get('/profil/informasi-geografis', 'HomeController@infoGeografis')->name('infoGeografis.index')->middleware('guest');
+Route::get('/profil/bank-sampah', 'HomeController@infoBankSampah')->name('infoBankSampah.index')->middleware('guest');
 Route::get('admin', ['uses' => 'DashboardController', 'as' => 'admin.dashboard'])->middleware('auth');
 
 //artikel guest
@@ -35,11 +36,8 @@ Route::group(
     ],
     function (\Illuminate\Routing\Router $router) {
         $router->get('setting/background', 'SettingController@index')->name('setting.background');
-        // $router->get('master/create', 'MasterController@create')->name('master.create');
         $router->post('setting/background', 'SettingController@bgStore')->name('setting.background.store');
-        // $router->get('master/{master}', 'MasterController@show')->name('master.show');
-        // $router->get('master/{master}/edit', 'MasterController@edit')->name('master.edit');
-        // $router->put('master/{master}', 'MasterController@update')->name('master.update');
-        // $router->delete('master/{master}', 'MasterController@destroy')->name('master.destroy');
+        $router->get('setting/footer', 'SettingController@footerIndex')->name('setting.footer');
+        $router->post('setting/footer', 'SettingController@footerStore')->name('setting.footer.store');
     }
 );

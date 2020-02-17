@@ -120,7 +120,7 @@
     <div class="fourteen wide column">
       <div class="ui three column center aligned stackable divided grid">
         @foreach($artikel as $a)
-          <div class="column column-feature">
+          <div class="column column-feature" style="border-bottom-style: solid; border-bottom-color: #7BAE23; border-width: 5px;">
             <div class="gambar">
               <label class="ui label yellow" style="position:absolute;"><small>{{$a->created_at_present}}</small></label>
               <img style="width: 15rem; height: 15rem; object-fit: cover" src="{{ asset('uploadedImage/'.$a->gambar) }}" alt="">
@@ -162,7 +162,7 @@
           <div class="column">
             <div class="ui card">
               <div class="image">
-                <img style="object-fit: cover" src="{{ asset('uploadedImage/'.$w->file) }}">
+                <img style="object-fit: cover; height: 20rem;" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
               <div class="content" style="height: 10rem">
                 <div class="header">{{ $w->title }}</div>
