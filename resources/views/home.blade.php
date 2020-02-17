@@ -162,7 +162,7 @@
           <div class="column">
             <div class="ui card">
               <div class="image">
-                <img style="object-fit: cover; height: 20rem;" src="{{ asset('uploadedImage/'.$w->file) }}">
+                <img style="object-fit: cover; height: 15rem;" src="{{ asset('uploadedImage/'.$w->file) }}">
               </div>
               <div class="content" style="height: 10rem">
                 <div class="header">{{ $w->title }}</div>
