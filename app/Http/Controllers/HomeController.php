@@ -29,9 +29,10 @@ class HomeController extends Controller
         $artikel = Article::latest()->limit(3)->where('status', 'Aktif')->get();
         $wisata = Wisata::latest()->limit(3)->where('status', 'Aktif')->get();
         $image = DB::table('settings')->where('key', 'like', 'gambar%')->get();
+        $galeri = DB::table('settings')->where('key', 'like', 'galeri%')->get();
 
         VisitLog::save();
-        return view('home', compact(['artikel','wisata','image']));
+        return view('home', compact(['artikel','wisata','image','galeri']));
 
     }
 

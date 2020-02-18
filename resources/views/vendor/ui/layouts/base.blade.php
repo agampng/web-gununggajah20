@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}"/>
     @guest
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home/custom.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @endguest
     @stack('style')
     @stack('head')

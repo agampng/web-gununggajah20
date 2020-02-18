@@ -1,8 +1,8 @@
-  <div class="row footer" style="background: #000000; padding: 0 10rem;">
+  <div class="row footer" style="background: #000000; padding: 1rem 2rem;">
     <div class="ui container fluid">
         <div class="ui grid stackable">
             <div class="row">
-                <div id="footerleft" class="sixteen wide column" style="color: white;">
+                <div class="sixteen wide column" style="color: white">
                     <p>
                         {!! setting('footer') !!}
                     </p>

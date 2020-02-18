@@ -21,11 +21,19 @@
   <script type="text/javascript" src="{{ asset('css/homepage/semantic.js') }}"></script>
   <script type="text/javascript" src="{{ asset('css/homepage.js') }}"></script>
   <script src="{{ asset('plugin/slick/slick.min.js')  }}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script>
     $(function(){
       $('.ui.card').popup();
     });
     $(document).ready(function () {
+      $('.ui.sidebar').sidebar({
+          transition: 'overlay',
+          verbose: 'false',
+          closable: 'false',
+          silent: 'true',
+      }).sidebar('attach events', '.mobile_item');
+
       $('.one-time').slick({
           dots: true,
           infinite: true,
@@ -36,7 +44,71 @@
           autoplay: true,
           autoplaySpeed: 2000,
       });
+
+      $('#grid_company').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: $('.prev'),
+        nextArrow: $('.show_more'),
+      });
     });
+
+    $('.popup')
+        .popup();
+
+    function openModal() {
+      $('.ui.basic.modal.view-photos')
+          .modal('show');
+    }
+
+    var slideIndex = 0;
+    showSlides(slideIndex);
+
+    function nextSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByName("photo-Slides");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+        document.getElementById("image-index").innerHTML = slideIndex + " Of " + slides.length;
+    }
+    $(document).ready(function () {
+        $('.save-modal').click(function () {
+            $('.ui.modal.save.job').modal({
+                    closable: false
+                })
+                .modal('show');
+        });
+        $('.unsave-modal').click(function () {
+            $('.ui.modal.unsave.job').modal({
+                    closable: false
+                })
+                .modal('show');
+        });
+        $("#save-confirmation").click(function () {
+            location.reload();
+        });
+        $("#unsave-confirmation").click(function () {
+            location.reload();
+        });
+    })
   </script>
    {!! NoCaptcha::renderJs() !!}
   <style>
@@ -56,13 +128,16 @@
     #desc-wisata > p{
       color:#8F8F8F
     }
+    .mobile-only {
+      display: none !important;
+    }
     @media only screen and (max-width:620px){
-        .computer-only {
-            display: none !important;
-        }
-        .mobile-only {
-            display: inline !important;
-        }
+      .computer-only {
+                display: none !important;
+            }
+            .mobile-only {
+                display: inline !important;
+            }
         .row-header {
             margin-top: 3em;
         }
@@ -85,7 +160,8 @@
       @include('home.navbar')
       {{-- end navbar --}}
 
-      <div class="ui hidden transition information">
+      {{-- computer header --}}
+      <div class="ui hidden transition information computer-only">
         <h1 class="ui inverted centered header">
           Desa Wisata Gununggajah 
         </h1>
@@ -97,10 +173,24 @@
         <div class="ui centerted image">
           <div class="one-time" style="height: 35rem">
             @foreach ($image as $img)
-              <img style="object-fit: cover" src="{{asset('uploadedImage/'.$img->value)}}" />
+              <img style="object-fit: cover; max-height: 50rem" src="{{asset('uploadedImage/'.$img->value)}}" />
             @endforeach
           </div>
         </div>
+      </div>
+      {{-- mobile device --}}
+      <div class="ui eight wide centered column mobile-only" style="height: 10vh">
+        <div class="ui divider hidden" style="height: 4rem"></div>
+        <h1 style="text-align: center;">
+          Desa Wisata Gununggajah
+          "GUMBREGAH"
+        </h1>
+        {{-- <div class="ui centerted image"> --}}
+          <div class="one-time" style="height: 15rem; z-index: 1; position:relative;">
+            @foreach ($image as $img)
+              <img style="object-fit: cover; border-radius: 1rem; box-shadow: 2px 0 10px 0 grey, -2px 1px 8px -4px grey; max-height: 17rem;" src="{{asset('uploadedImage/'.$img->value)}}" />
+            @endforeach
+          </div>
       </div>
     </div>
   </div>
@@ -195,113 +285,44 @@
     <div class="row">
       <div class="eight wide column">
         <h1 class="ui header">
-          Media Sosial
-        </h1><div class="ui horizontal divider"><i class="flaticon-settings icon"></i></div>
-        <p class="ui centered lead">
-        </p>
+          Galeri
+        </h1><div class="ui horizontal divider"><i class=" flaticon-camera icon"></i></div>
+        <p class="ui centered lead">Galeri Foto</p>
         <br/>
       </div>
     </div>
-    <div class="four column logo row">
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="active side">
-              <i class="huge flaticon-facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-pinterest icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-more icon"></i>
-            </div>
+    <div class="sixteen wide column">
+      <section class="company">
+          <div class="eleven wide column">
+              <div id="grid_company">
+              @forelse($galeri as $key => $gal)
+              <a style="cursor: pointer" onclick="openModal();currentSlide({{$key+1}})">
+                <div class="ui container stackable">
+                  <img src="{{ asset('uploadedImage/' . $gal->value) }}" class="ui image centered"
+                        style="width: 30rem; height: 20rem; object-fit: cover;" alt="">
+                </div>
+              </a>
+              @empty
+                  <p class="ui container" style="text-align: center; font-weight: bold">
+                      --- No images found ---
+                  </p>
+              @endforelse
+              </div>
+              <div id="modal-view-photos" class="ui basic modal view-photos">
+                @foreach($galeri as $key => $gal)
+                    <div name="photo-Slides" class="ui image centered crop">
+                        <img class="centered image" src="{{ asset('uploadedImage/' . $gal->value) }}" alt="">
+                    </div>
+                @endforeach
+                    <div id="image-index" class="ui header centered" style="text-transform: lowercase; font-size: 16px;"></div>
+                    <a class="prev" style="cursor: pointer;position: absolute; left: -80px; top: 45%; color: white" onclick="nextSlides(-1)"><h1><<</h1></a>
+                    <a class="next" style="cursor: pointer;position: absolute; right: -80px; top: 45%; color: white" onclick="nextSlides(1)"><h1>>></h1></a>
+              </div>
+              <div class="ui divider hidden"></div>
           </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-more icon"></i>
-            </div>
-            <div class="active side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="active side">
-              <i class="huge flaticon-facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-pinterest icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-more icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui shape">
-          <div class="sides">
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-more icon"></i>
-            </div>
-            <div class="active side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-facebook icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-google icon"></i>
-            </div>
-            <div class="side">
-              <i class="huge flaticon-twitter icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
   </div>
+</div>
 </div>
 
 <div class="ui recent-works vertical segment">
@@ -311,7 +332,7 @@
         <h1 class="center aligned ui inverted header" id="sectionContact">
           Kritik / Saran
         </h1>
-        <div class="ui horizontal divider"><i class="white flaticon-camera icon"></i></div>
+        <div class="ui horizontal divider"><i class="white flaticon-settings icon"></i></div>
         <p class="ui centered lead">Sampaikan kritik / saran anda</p>
         @if ($message = Session::get('success'))
         <div class="ui info message">

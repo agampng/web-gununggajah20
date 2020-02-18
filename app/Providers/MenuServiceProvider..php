@@ -42,6 +42,10 @@ class MenuServiceProvider extends ServiceProvider
            ->data('icon', 'cog')
            ->active('admin/setting/background');
 
+        $subMenu->add('Galeri', 'admin/setting/galeri')
+           ->data('icon', 'cog')
+           ->active('admin/setting/galeri');
+
         $subMenu->add('Footer', 'admin/setting/footer')
            ->data('icon', 'cog')
            ->active('admin/setting/footer');

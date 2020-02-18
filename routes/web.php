@@ -40,5 +40,7 @@ Route::group(
         $router->post('setting/background', 'SettingController@bgStore')->name('setting.background.store');
         $router->get('setting/footer', 'SettingController@footerIndex')->name('setting.footer');
         $router->post('setting/footer', 'SettingController@footerStore')->name('setting.footer.store');
+        $router->get('setting/galeri', 'SettingController@galeriIndex')->name('setting.galeri');
+        $router->post('setting/galeri', 'SettingController@galeriStore')->name('setting.galeri.store');
     }
 );
